@@ -1,4 +1,3 @@
-
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('maps').del()
@@ -16,7 +15,7 @@ exports.seed = function(knex, Promise) {
 
         knex('maps').insert({
         title: 'Bars TO',
-        description: 'Best bars in Toronto',
+        description: 'Best bars in Toronto!!',
         image: 'image_link',
         created_by_user_id: 1,
         created_date: '2016-01-01',

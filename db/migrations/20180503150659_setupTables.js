@@ -17,7 +17,6 @@ exports.up = function(knex, Promise) {
         table.string('description');
         table.string('image');
         table.integer('created_by_user_id');
-        table.foreign('created_by_user_id').references('id').inTable('users');
         table.date('created_date').defaultTo(knex.fn.now());
         table.boolean('is_private');
       });
@@ -26,30 +25,24 @@ exports.up = function(knex, Promise) {
       return knex.schema.createTable('favourites', function(table){
         table.increments('id').primary();
         table.integer('user_id');
-        table.foreign('user_id').references('id').inTable('users');
         table.integer('map_id');
-        table.foreign('map_id').references('id').inTable('maps');
       });
     })
     .then( () => {
       return knex.schema.createTable('permissions', function(table){
         table.increments('id').primary();
         table.integer('user_id');
-        table.foreign('user_id').references('id').inTable('users');
         table.integer('map_id');
-        table.foreign('map_id').references('id').inTable('maps');
       });
     })
     .then( () => {
       return knex.schema.createTable('poi_list', function(table){
         table.increments('id').primary();
         table.integer('map_id');
-        table.foreign('map_id').references('id').inTable('maps');
         table.string('title');
         table.string('description');
         table.string('image');
         table.integer('created_by_user_id');
-        table.foreign('created_by_user_id').references('id').inTable('users');
         table.date('created_date').defaultTo(knex.fn.now());
         table.string('latitude');
         table.string('longitude');

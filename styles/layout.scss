@@ -6,32 +6,44 @@ body h1 {
   color: #244751;
 }
 
-body { padding-top: 70px; }
+body {
+  padding-top: 70px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
 
 #map-list {
 padding-top: 50px;
 }
-.picture {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-}
 
-.fakemap h4 {
+.fakemap h2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
   text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+
 }
 
-.jumbotron {
-text-align: center;
-background-color: #bac3d1;
-margin-left: 75px;
-margin-right: 75px;
-border-radius: 5px;
-padding-top: 5px;
-padding-bottom: 5px;
+.sample-map {
+  margin-left: 75px;
+  margin-right: 75px;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 350px;
+  background-image: url("https://www.google.com/maps/about/images/mymaps/mymaps-desktop-16x9.png");
+  background-size: cover;
+}
+
+.inside-text {
+  text-align: center;
+  // background-color: rgba(94, 133, 193, 0.1);
+  margin-top: 10px;
+  margin-left: 75px;
+  margin-right: 75px;
+  padding: 5px;
+  border-radius: 5px;
+
 }

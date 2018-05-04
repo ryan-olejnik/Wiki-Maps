@@ -40,8 +40,21 @@ app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index.ejs");
 });
+// Show Single Map
+app.get("/map/:mapid", (req, res) => {
+  res.render("index.ejs");
+});
+
+// Login page:
+app.post('/login', (req, res) => {
+  console.log(req.body);
+  res.send('hello');
+});
+
+
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

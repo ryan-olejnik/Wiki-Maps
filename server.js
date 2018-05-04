@@ -33,58 +33,11 @@ app.use("/styles", sass({
   debug: true,
   outputStyle: 'expanded'
 }));
+
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
-
-// Home page
-app.get("/", (req, res) => {
-  res.render("index.ejs");
-});
-
-app.post('/login', (req, res) => {
-  knex.select('*').from('users')
-  .where('email', '=', req.body.email)
-  .then((result) => {
-    console.log(result[0].username, ' is a member');
-    console.log(result[0].password);
-    if (req.body.password === result[0].password){
-      res.send('SUCCESSFUL LOGIN!\nWelcome');
-    } else{
-      throw new Error('User authenticaiton failed');
-    }
-  })
-  .catch((error) => {
-    res.send('Unsuccessful Login :(...');
-  });
-});
-
-app.post('/create', (req, res) => {
-  // console.log(req.body);
-  knex('maps').insert({
-    title: req.body.title,
-    description: req.body.description,
-    image: String(req.body.image),
-    created_by_user_id: req.body.created_by_user_id  // READ COOKIES TO FIND OUT WHO IS LOGGED IN!!
-  })
-  .then(() => {
-    knex.destroy();
-    res.send('New map added!');
-  })
-  .catch((error) => {
-    res.send('Unable to create map :(...');
-    console.error('MAP WAS NOT CREATED BECASUE:\n', error);
-  });
-
-
-});
-
-
-
-
-
-
+app.use("/", usersRoutes(knex));
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

@@ -37,7 +37,29 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
+<<<<<<< HEAD
 app.use("/", usersRoutes(knex));
+=======
+app.use("/api/users", usersRoutes(knex));
+
+// Home page
+app.get("/", (req, res) => {
+  res.render("index.ejs");
+});
+// Show Single Map
+app.get("/map/:mapid", (req, res) => {
+  res.render("index.ejs");
+});
+
+// Login page:
+app.post('/login', (req, res) => {
+  console.log(req.body);
+  res.send('hello');
+});
+
+
+
+>>>>>>> init/database
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

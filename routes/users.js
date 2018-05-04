@@ -9,6 +9,15 @@ module.exports = (knex) => {
     res.render('index.ejs');
   });
 
+  router.get('/maps/:mapid', (req, res) => {
+    console.log(req.params.mapid);
+    res.send('This is a single map');
+    
+  });
+
+
+
+
   router.post('/login', (req, res) => {
     knex.select('*').from('users')
     .where('email', '=', req.body.email)

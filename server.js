@@ -40,8 +40,27 @@ app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index.ejs");
 });
+
+app.post('/login', (req, res) => {
+  // Determine if user is in the database:
+  knex.select('*').from('users')
+  .where('email', '=', req.body.email)
+  .then((result) => {
+    console.log(result[0].username, ' is a member');
+    console.log(result[0].password);
+    if (req.body.password === result[0].password){
+      res.send('SUCCESSFUL LOGIN!\nWelcome');
+    } else{
+      throw new Error('User authenticaiton failed');
+    }
+  })
+  .catch((error) => {
+    res.send('Unsuccessful Login :(...');
+  });
+});
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

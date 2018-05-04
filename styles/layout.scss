@@ -1,7 +1,37 @@
 body {
-  background-color: #EEE;
+  background-color: white;
+}
 
-  h1 {
-    color: #244751;
-  }
+body h1 {
+  color: #244751;
+}
+
+body { padding-top: 70px; }
+
+#map-list {
+padding-top: 50px;
+}
+.picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.fakemap h4 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.jumbotron {
+text-align: center;
+background-color: #bac3d1;
+margin-left: 75px;
+margin-right: 75px;
+border-radius: 5px;
+padding-top: 5px;
+padding-bottom: 5px;
 }

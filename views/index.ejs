@@ -16,6 +16,10 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <!-- LAYOUT CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <!-- NAVBAR CSS -->
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <!-- LOGIN CSS -->
+    <link rel="stylesheet" href="/styles/login.css" type="text/css" />
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
   </head>
@@ -26,17 +30,61 @@
 
     <!-- TO TRACK WHERE WE ARE, WHICH PAGE WE ARE ON -->
     <!-- WE CAN USE THIS TO GET BACK TO THE MAPS PAGE OR THE HOMEPAGE -->
-    <ol class="breadcrumb">
+    <!-- <ol class="breadcrumb">
       <li><a href="#">Home</a></li>
       <li><a href="#">Map Library</a></li>
       <li class="active">Best Restaurants in Toronto</li>
-    </ol>
-
-    <!-- SAMPLE MAP PICTURE FOR THE HOMEPAGE, WE CAN CHANGE THIS TO AN ACTUAL CURATED MAP -->
-    <img class="picture" src="https://www.google.com/maps/about/images/mymaps/mymaps-desktop-16x9.png" alt="" width=%100 height="450">
+    </ol> -->
+    <div class="fakemap">
+      <h4>Sample Map</h4>
+      <!-- SAMPLE MAP PICTURE FOR THE HOMEPAGE, WE CAN CHANGE THIS TO AN ACTUAL CURATED MAP -->
+      <img class="picture" src="https://www.google.com/maps/about/images/mymaps/mymaps-desktop-16x9.png" alt="" width=%100 height="450">
+      <div class="jumbotron">
+        <h3>Hello there!</h3>
+        <p>To see more curated maps </p>
+        <p><a class="btn btn-primary btn-lg" href="#map-list" role="button">click here</a></p>
+      </div>
+    </div>
 
 
     <% include partials/_map-list.ejs %>
 
+    <script type="text/javascript">
+      $('a[href*="#"]')
+        // Remove links that don't actually link to anything
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function(event) {
+          // On-page links
+          if (
+            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+            &&
+            location.hostname == this.hostname
+          ) {
+            // Figure out element to scroll to
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            // Does a scroll target exist?
+            if (target.length) {
+              // Only prevent default if animation is actually gonna happen
+              event.preventDefault();
+              $('html, body').animate({
+                scrollTop: target.offset().top
+              }, 1000, function() {
+                // Callback after animation
+                // Must change focus!
+                var $target = $(target);
+                $target.focus();
+                if ($target.is(":focus")) { // Checking if the target was focused
+                  return false;
+                } else {
+                  $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                  $target.focus(); // Set focus again
+                };
+              });
+            }
+          }
+        });
+    </script>
   </body>
 </html>

@@ -1,7 +1,71 @@
 body {
-  background-color: #EEE;
+  background-color: white;
+}
 
-  h1 {
-    color: #244751;
-  }
+body h1 {
+  color: #244751;
+}
+
+body {
+  padding-top: 55px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+#map-list {
+padding-top: 50px;
+}
+
+.fakemap h2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 35px;
+}
+
+.fakemap span {
+  border-style: solid;
+  border-width: medium;
+  background-color: #4367a0;
+  padding: 5px;
+  font-weight: normal;
+  color: white;
+  border-radius: 8px;
+  opacity: 0.9;
+}
+
+.fa-map-marker-alt {
+  color: #7499d3;
+}
+
+.sample-map {
+  margin-left: 75px;
+  margin-right: 75px;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 350px;
+  background-image: url("https://www.google.com/maps/about/images/mymaps/mymaps-desktop-16x9.png");
+  background-size: cover;
+}
+
+.inside-text {
+  text-align: center;
+  // background-color: rgba(94, 133, 193, 0.1);
+  // margin-top: 10px;
+  margin-left: 75px;
+  margin-right: 75px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.inside-text h3 {
+  font-size: 40px;
+}
+
+.inside-text p {
+  font-size: 20px;
 }

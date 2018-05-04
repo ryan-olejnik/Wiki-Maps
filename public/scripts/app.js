@@ -6,3 +6,8 @@ $(() => {
       $("<div>").text(res).appendTo($("body"));
   });
 });
+
+$( document ).ready(function() {
+  slowScroll()
+  console.log( "ready!" );
+});

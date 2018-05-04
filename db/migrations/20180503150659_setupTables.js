@@ -22,7 +22,7 @@ exports.up = function(knex, Promise) {
         table.boolean('is_private');
       });
     })
-    .then( () => {
+    .then(() => {
       return knex.schema.createTable('favourites', function(table){
         table.increments('id').primary();
         table.integer('user_id');

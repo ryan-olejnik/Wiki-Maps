@@ -10,22 +10,35 @@ module.exports = (knex) => {
   });
 
   router.get('/maps/:mapid', (req, res) => {
-    // res.send('This is a single map');
-
+    let map_info = {};
     // lookup the map in the database, and send the map data, and all associated POIs
     knex.select('*').from('maps')
     .where('id', '=', Number(req.params.mapid))
     .then((results) => {
-      console.log(req.params.mapid);
-      if (typeof results.length === 0){
-        res.send('No Map with ID' + req.params.mapid);
+      // console.log(req.params.mapid);
+      if (results.length === 0){
+        throw new Error('No maps with id' + req.params.mapid);
+      } else{
+        map_info['map'] = results[0];
+        knex.select('*').from('poi_list')
+        .where('map_id', '=', map_info.map.id)
+        .then((results) => {
+          map_info['poi_list'] = results;
+          console.log(map_info);
+          res.send(map_info);
+        });
       }
-      res.send(results[0]);
-      console.log(results[0]);
+
+
     })
     .catch((error) => {
       res.send('There was an error: ' + error);
     });
+
+
+
+
+
   });
 
 

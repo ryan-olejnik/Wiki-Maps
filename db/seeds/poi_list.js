@@ -18,7 +18,7 @@ exports.seed = function(knex, Promise) {
           address: '638 Dundas St W, Toronto, ON M5T 1H8'
         }),
         knex('poi_list').insert({
-          map_id: 2,
+          map_id: 1,
           title: 'Cosmic Treats',
           description: 'Healthy selection of MURDER_FREE dishes',
           image: '<image_link>',

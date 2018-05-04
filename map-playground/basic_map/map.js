@@ -1,0 +1,36 @@
+var map;
+
+function initMap() {
+
+  // Initial map options
+  var options = {
+    zoom:8,
+    center:{lat:43.6532,lng:-79.3832}
+  }
+
+  // Create Map
+  map = new google.maps.Map(document.getElementById('map'), options);
+
+  // Event listener click on map
+  google.maps.event.addListener(map, 'click', function(event){
+    // Add marker
+    addMarker({coords:event.latLng});
+  });
+
+  var markers = [];
+
+
+  function addMarker(props){
+    var marker = new google.maps.Marker({
+      position:props.coords,
+      map:map,
+      //icon:props.iconImage
+    });
+
+    marker.addListener('click', function(){
+      infoWindow.open(map, marker);
+    });
+  }
+}
+
+

@@ -10,12 +10,23 @@ module.exports = (knex) => {
   });
 
   router.get('/maps/:mapid', (req, res) => {
-    console.log(req.params.mapid);
-    res.send('This is a single map');
-    
+    // res.send('This is a single map');
+
+    // lookup the map in the database, and send the map data, and all associated POIs
+    knex.select('*').from('maps')
+    .where('id', '=', Number(req.params.mapid))
+    .then((results) => {
+      console.log(req.params.mapid);
+      if (typeof results.length === 0){
+        res.send('No Map with ID' + req.params.mapid);
+      }
+      res.send(results[0]);
+      console.log(results[0]);
+    })
+    .catch((error) => {
+      res.send('There was an error: ' + error);
+    });
   });
-
-
 
 
   router.post('/login', (req, res) => {
@@ -34,7 +45,7 @@ module.exports = (knex) => {
     .catch((error) => {
       res.send('Unsuccessful Login :(...');
     });
-});
+  });
 
   router.post('/create', (req, res) => {
     // console.log(req.body);
@@ -54,6 +65,8 @@ module.exports = (knex) => {
     });
   });
 
+
+  // This request comes from app.js
   router.get('/api/users', (req, res) => {
     res.send('Got /api/users request');
 

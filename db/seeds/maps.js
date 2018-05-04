@@ -1,6 +1,6 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('maps').del()
+  return knex('maps').truncate()
     .then(function () {
       return Promise.all([
         // Inserts seed entries

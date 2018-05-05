@@ -32,8 +32,6 @@ module.exports = (knex) => {
           res.send(map_info);
         });
       }
-
-
     })
     .catch((error) => {
       res.send('There was an error: ' + error);
@@ -48,8 +46,6 @@ module.exports = (knex) => {
       console.log(result[0].username, ' is a member');
       console.log(result[0].password);
       if (req.body.password === result[0].password){
-        // res.send('SUCCESSFUL LOGIN!\nWelcome');
-        // SEND A COOKIE with login info------------------------------------------ !!!
         req.session.username = result[0].username;
         res.redirect('/');
       } else{
@@ -87,13 +83,16 @@ module.exports = (knex) => {
   });
 
 
-  // This request comes from app.js
+  // This request comes from app.js (FOR TESTING)
   router.get('/api/users', (req, res) => {
     res.send('Got /api/users request');
-
   });
 
-
+  // CREATE NEW MAP PAGE:
+  router.get('/newmap', (req, res) => {
+    let templateVars = {username: req.session.username};
+    res.render('add_new_map.ejs', templateVars);
+  });
 
 
 

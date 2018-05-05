@@ -3,11 +3,11 @@ var lastInfoWindow;
 function initMap() {
 
   // Initil map center - Toronto
-  var location = {lat:43.6532,lng:-79.3832};
+  var location = {lat: 31.22685967, lng: 11.24664299};
 
   // Initial veiw map options
   var options = {
-    zoom:12,
+    zoom:2.25,
     center: location
   };
 
@@ -23,7 +23,9 @@ function initMap() {
 
   // Assigns POI list to array of markers
   ////////////// Might want to consider just using poi_list
-  var markers = poi_list;
+  // var markers = poi_list;
+  var markers = [];
+
 
   var bounds  = new google.maps.LatLngBounds();
 
@@ -32,6 +34,7 @@ function initMap() {
     var marker = new google.maps.Marker({
       // position: new google.maps.LatLng(props.latitude, props.longitude),
       position: {lat: Number(props.latitude), lng: Number(props.longitude)},
+      animation: google.maps.Animation.DROP,
       map:map
       //icon:props.iconImage
     });
@@ -58,6 +61,12 @@ function initMap() {
 
     });
 
+
+    // Pushes marker to array of other markers
+    markers.push(marker);
+
+
+
     // Adds marker on click
     // marker.addListener('click', function(){
     //   infoWindow.open(map, marker);
@@ -66,9 +75,9 @@ function initMap() {
 
 
 
-  for (var i = 0; i < markers.length; i++) {
+  for (var i = 0; i < poi_list.length; i++) {
     // Add individual marker
-    addMarker(markers[i]);
+    addMarker(poi_list[i]);
   }
 
 

@@ -6,17 +6,42 @@
     <!-- CSS import -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/view-map.css" type="text/css" />
+
+    <!-- JQ import -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFKtQIeixhpaOG8c72kkrb9ZN9L-ccIc&callback=initMap"
+    async defer></script>
+
+
+    <script>
+
+      // console.log(map);
+      // console.log(<%- JSON.stringify(map) %>);
+      // console.log('hello');
+
+      // const map = <%- JSON.stringify(map) %>;
+      const poi_list = <%- JSON.stringify(poi_list) %>;
+
+      // const poi_list = <%= poi_list %>;
+
+      // const map_info = {
+      //   map: <%= map %>,
+      //   poi_list: <%= poi_list %>
+      // }
+    </script>
 
     <!-- JS import -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/mpa.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <script type="text/javascript" src="/scripts/view-map.js"></script>
   </head>
 
   <body>
 
-    <h1>Hello World!</h1>
+    <h1><%= map.title %></h1>
+    <p></p>
 
     <div id="map"></div>
 

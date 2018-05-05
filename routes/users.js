@@ -27,9 +27,11 @@ module.exports = (knex) => {
         knex.select('*').from('poi_list')
         .where('map_id', '=', map_info.map.id)
         .then((results) => {
+          // Assigning knex results into map_info and passing it into render
           map_info['poi_list'] = results;
           console.log(map_info);
-          res.send(map_info);
+          res.render('view-map', map_info);
+
         });
       }
     })

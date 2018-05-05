@@ -106,6 +106,8 @@ function initAutocomplete() {
 
       // Testing variables
       var infowindow = new google.maps.InfoWindow();
+
+      // Dont think i need this?
       var placeLoc = place.geometry.location;
 
       // Event listener for click
@@ -154,6 +156,7 @@ function initAutocomplete() {
       } else {
         bounds.extend(place.geometry.location);
       }
+
     });
     map.fitBounds(bounds);
   });

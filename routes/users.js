@@ -34,11 +34,6 @@ module.exports = (knex) => {
     .catch((error) => {
       res.send('There was an error: ' + error);
     });
-
-
-
-
-
   });
 
 

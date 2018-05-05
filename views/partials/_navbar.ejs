@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
   </head>
   <body>
@@ -17,7 +18,7 @@
             <span class="icon-bar"></span>
           </button>
           <div class="company-logo">
-            <a href="#" class="navbar-brand">Wiki-Maps <i class="fas fa-map-marker-alt"></i></a>
+            <a href="/" class="navbar-brand">Wiki-Maps <i class="fas fa-map-marker-alt"></i></a>
           </div>
         </div>
         <!-- This collapses to hamburger -->
@@ -26,12 +27,14 @@
           <li> <a href="#map-list">Maps</a> </li>
           <!-- THIS CAN REDIRECT TO LOGIN IF USER IS NOT SIGNED IN -->
           <li> <a href="#">Create a Map</a> </li>
-
-          <!-- Button trigger modal --> 
+          <!-- Button trigger modal -->
           <% if (username) {%>
-          <form action='/logout' method='POST'>
-            <button  id='username' class="btn btn-default navbar-btn">logged in as: <%=username %>, LOGOUT?</button>
-          </form>
+          <li> <a href="/">Hello, <%=username %></a> </li>
+          <li>
+            <form action='/logout' method='POST'>
+              <button id='username' class="btn btn-default navbar-btn">LOGOUT</button>
+            </form>
+          </li>
           <% } else {%>
           <button type="button" id="sign-in-button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal">
             Sign in

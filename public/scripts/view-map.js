@@ -1,13 +1,11 @@
-// var map;
-
-
-
+var lastInfoWindow;
 
 function initMap() {
 
+  // Initil map center - Toronto
   var location = {lat:43.6532,lng:-79.3832};
 
-  // Initial map options
+  // Initial veiw map options
   var options = {
     zoom:12,
     center: location
@@ -23,27 +21,14 @@ function initMap() {
   // });
 
 
-  // Dummy Data
-  // var markers = [{
-  //   latitude: 43.654037,
-  //   longitude: -79.401611,
-  //   title: 'Cosmic Treats'},
-  //   {
-  //   latitude: 43.652187,
-  //   longitude: -79.402506,
-  //   title: 'Greens Vegetarian Resturante'
-  // }];
-
-
-  // var markers = JSON.parse(poi_list);
-
+  // Assigns POI list to array of markers
+  ////////////// Might want to consider just using poi_list
   var markers = poi_list;
-  console.log(markers);
 
-
-
+  var bounds  = new google.maps.LatLngBounds();
 
   function addMarker(props){
+
     var marker = new google.maps.Marker({
       // position: new google.maps.LatLng(props.latitude, props.longitude),
       position: {lat: Number(props.latitude), lng: Number(props.longitude)},
@@ -51,12 +36,26 @@ function initMap() {
       //icon:props.iconImage
     });
 
+
+    var loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+    bounds.extend(loc);
+
+
+    // Create new infowindow
     var infoWindow = new google.maps.InfoWindow({
       content:props.title
     });
 
+    // Add listener to marker to open new info window
     marker.addListener('click', function(){
+
+      // Closed last infowindow when marker is clicked
+      lastInfoWindow && lastInfoWindow.close();
+      // Opens new infowindow
       infoWindow.open(map, marker);
+      // Makes a pointer to lastInfoWindow from current
+      lastInfoWindow = infoWindow;
+
     });
 
     // Adds marker on click
@@ -67,14 +66,17 @@ function initMap() {
 
 
 
-
-
   for (var i = 0; i < markers.length; i++) {
-    // Add marker
-    console.log(i);
-    console.log(markers[i]);
+    // Add individual marker
     addMarker(markers[i]);
   }
+
+
+  // auto-zoom
+  map.fitBounds(bounds);
+  // auto-center
+  map.panToBounds(bounds);
+
 
 }
 

@@ -26,10 +26,17 @@
           <li> <a href="#map-list">Maps</a> </li>
           <!-- THIS CAN REDIRECT TO LOGIN IF USER IS NOT SIGNED IN -->
           <li> <a href="#">Create a Map</a> </li>
-          <!-- Button trigger modal -->
+
+          <!-- Button trigger modal --> 
+          <% if (username) {%>
+          <form action='/logout' method='POST'>
+            <button  id='username' class="btn btn-default navbar-btn">logged in as: <%=username %>, LOGOUT?</button>
+          </form>
+          <% } else {%>
           <button type="button" id="sign-in-button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal">
             Sign in
           </button>
+          <% } %>
         </ul>
         </div>
       </div>

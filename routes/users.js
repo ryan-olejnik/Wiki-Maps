@@ -2,11 +2,15 @@
 
 const express = require('express');
 const router  = express.Router();
+const cookieSession = require('cookie-session');
+
 
 module.exports = (knex) => {
 
   router.get("/", (req, res) => {
-    res.render('index.ejs');
+    console.log('cookie: ' + req.session.username);
+    let templateVars = {username: req.session.username};
+    res.render('index.ejs', templateVars);
   });
 
   router.get('/maps/:mapid', (req, res) => {
@@ -46,6 +50,7 @@ module.exports = (knex) => {
       if (req.body.password === result[0].password){
         // res.send('SUCCESSFUL LOGIN!\nWelcome');
         // SEND A COOKIE with login info------------------------------------------ !!!
+        req.session.username = result[0].username;
         res.redirect('/');
       } else{
         throw new Error('User authenticaiton failed');
@@ -55,6 +60,13 @@ module.exports = (knex) => {
       res.send('Unsuccessful Login :(...');
     });
   });
+
+  router.post('/logout', (req, res) => {
+    req.session.username = null;
+    let templateVars = {username: req.session.username};
+    res.render('index.ejs', templateVars);
+  });
+
 
   router.post('/create', (req, res) => {
     // console.log(req.body);

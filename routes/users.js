@@ -69,11 +69,11 @@ module.exports = (knex) => {
   router.post('/newmap', (req, res) => {
     console.log(req.body);
 
-    knex.select('*').from('users')
-    .where('username', '=', req.session.username)
-    .then((results) => {
-      console.log(results.username + ' is the one who created the ');
-    });
+    // knex.select('*').from('users')
+    // .where('username', '=', req.session.username)
+    // .then((results) => {
+    //   console.log(results.username + ' is the one who created the map');
+    // });
 
     knex('maps').insert({
       title: req.body.title,

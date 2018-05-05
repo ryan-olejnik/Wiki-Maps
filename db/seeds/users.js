@@ -30,7 +30,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Cem',
           last_name: 'Hekimoglu',
           birthdate: '1993-06-03'
-        }),
+        })
 
       ]);
     });

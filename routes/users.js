@@ -88,6 +88,7 @@ module.exports = (knex) => {
     res.send('Got /api/users request');
   });
 
+// ----------------------------------------------------------------
   // CREATE NEW MAP PAGE:
   router.get('/newmap', (req, res) => {
     let templateVars = {username: req.session.username};
@@ -95,6 +96,14 @@ module.exports = (knex) => {
   });
 
 
+  router.post('/newmap', (req, res) => {
+    console.log(req.body);
+
+    let templateVars = {username: req.session.username};
+    res.render('view-map.ejs', templateVars);
+  });
+
+// ---------------------------------------------------------------------
 
   return router;
 };

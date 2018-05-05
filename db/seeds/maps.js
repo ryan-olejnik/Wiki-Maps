@@ -10,7 +10,9 @@ exports.seed = function(knex, Promise) {
         image: 'image_link',
         created_by_user_id: 2,
         created_date: '2016-03-11',
-        is_private: false
+        is_private: false,
+        gps_lat: '43.652120',
+        gps_lng: '-79.402601'
         }),
 
         knex('maps').insert({
@@ -19,7 +21,9 @@ exports.seed = function(knex, Promise) {
         image: 'image_link',
         created_by_user_id: 1,
         created_date: '2016-01-01',
-        is_private: false
+        is_private: false,
+        gps_lat: '43.652608',
+        gps_lng: '-79.392621'
         })
       ]);
     });

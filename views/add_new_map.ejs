@@ -47,23 +47,30 @@
         <form id='new-map-form' action='/newmap' method='POST'>
           <div class="form-group">
             <label for="mapTitle">Title</label>
-            <input type="text" class="form-control" placeholder="Map Title">
+            <input type="text" class="form-control" placeholder="mapTitle" name='title'>
           </div>
           <div class="form-group">
             <label for="mapDescription">Description</label>
-            <textarea class="form-control" rows="3" placeholder="Tell us about this map"></textarea>
+            <textarea class="form-control" rows="3" placeholder="Tell us about this map" name='description'></textarea>
           </div>
-     <div class="form-group">
+<!--           <div class="form-group">
             <label for="exampleInputFile">File input</label>
             <input type="file" id="exampleInputFile">
             <p class="help-block">You can add a main image for this map</p>
+          </div> -->
+          <div class="form-group">
+            <label for="gps-lat">GPS-lat</label>
+            <input id='gps-lat' type="text" class="form-control" placeholder="gps-lat" name='gps-lat'>
+          </div>
+          <div class="form-group">
+            <label for="gps-lng">GPS-lng</label>
+            <input id='gps-lng' type="text" class="form-control" placeholder="gps-lng" name='gps-lng'>
+          </div>
+          <div class="form-group">
+            <label for="image">Image</label>
+            <input id='image' type="text" class="form-control" placeholder="image link" name='image'>
           </div>
 
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Check me out
-            </label>
-          </div>
           <button type="submit" class="btn btn-default">Create</button>
         </form>
 

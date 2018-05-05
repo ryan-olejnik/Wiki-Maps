@@ -66,13 +66,15 @@ module.exports = (knex) => {
   });
 
 
-  router.post('/create', (req, res) => {
-    // console.log(req.body);
+  router.post('/newmap', (req, res) => {
+    console.log(req.body);
+
+
     knex('maps').insert({
       title: req.body.title,
       description: req.body.description,
       image: String(req.body.image),
-      created_by_user_id: req.body.created_by_user_id  // <--- READ COOKIES TO FIND OUT WHO IS LOGGED IN!!!!!!!
+      created_by_user_id: 1  // <--- READ COOKIES TO FIND OUT WHO IS LOGGED IN!!!!!!!
     })
     .then(() => {
       knex.destroy();
@@ -86,11 +88,10 @@ module.exports = (knex) => {
 
 
   // This request comes from app.js (FOR TESTING)
-  router.get('/api/users', (req, res) => {
-    res.send('Got /api/users request');
-  });
+  // router.get('/api/users', (req, res) => {
+  //   res.send('Got /api/users request');
+  // });
 
-// ----------------------------------------------------------------
   // CREATE NEW MAP PAGE:
   router.get('/newmap', (req, res) => {
     let templateVars = {username: req.session.username};
@@ -98,14 +99,6 @@ module.exports = (knex) => {
   });
 
 
-  router.post('/newmap', (req, res) => {
-    console.log(req.body);
-
-    let templateVars = {username: req.session.username};
-    res.render('view-map.ejs', templateVars);
-  });
-
-// ---------------------------------------------------------------------
 
   return router;
 };

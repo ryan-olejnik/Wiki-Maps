@@ -119,7 +119,9 @@ function initAutocomplete() {
           $('.add-button').click(function () {
             console.log(place);
             console.log(place.geometry.location.lat(),place.geometry.location.lng());
-          })
+            document.getElementById('gps-lat').value = place.geometry.location.lat();
+            document.getElementById('gps-lng').value = place.geometry.location.lng();
+          });
 
 
 

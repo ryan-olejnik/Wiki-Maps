@@ -1,7 +1,4 @@
-// var map;
-
-
-
+var lastInfoWindow;
 
 function initMap() {
 
@@ -23,9 +20,12 @@ function initMap() {
   //   addMarker({coords:event.latLng});
   // });
 
-  //
+
+  // Assigns POI list to array of markers
+  ////////////// Might want to consider just using poi_list
   var markers = poi_list;
 
+  var bounds  = new google.maps.LatLngBounds();
 
   function addMarker(props){
 
@@ -36,12 +36,26 @@ function initMap() {
       //icon:props.iconImage
     });
 
+
+    var loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+    bounds.extend(loc);
+
+
+    // Create new infowindow
     var infoWindow = new google.maps.InfoWindow({
       content:props.title
     });
 
+    // Add listener to marker to open new info window
     marker.addListener('click', function(){
+
+      // Closed last infowindow when marker is clicked
+      lastInfoWindow && lastInfoWindow.close();
+      // Opens new infowindow
       infoWindow.open(map, marker);
+      // Makes a pointer to lastInfoWindow from current
+      lastInfoWindow = infoWindow;
+
     });
 
     // Adds marker on click
@@ -52,12 +66,17 @@ function initMap() {
 
 
 
-
-
   for (var i = 0; i < markers.length; i++) {
     // Add individual marker
     addMarker(markers[i]);
   }
+
+
+  // auto-zoom
+  map.fitBounds(bounds);
+  // auto-center
+  map.panToBounds(bounds);
+
 
 }
 

@@ -105,6 +105,13 @@ module.exports = (knex) => {
     res.render('add_new_map.ejs', templateVars);
   });
 
+  router.get('/newpoi', (req, res) => {
+    let templateVars = {username: req.session.username};
+    res.render('add-poi.ejs', templateVars);
+  });
+
+
+
 
 
   return router;

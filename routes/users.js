@@ -44,8 +44,9 @@ module.exports = (knex) => {
       console.log(result[0].username, ' is a member');
       console.log(result[0].password);
       if (req.body.password === result[0].password){
-        res.send('SUCCESSFUL LOGIN!\nWelcome');
+        // res.send('SUCCESSFUL LOGIN!\nWelcome');
         // SEND A COOKIE with login info------------------------------------------ !!!
+        res.redirect('/');
       } else{
         throw new Error('User authenticaiton failed');
       }

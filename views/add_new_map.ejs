@@ -43,6 +43,7 @@
         <div id="map"></div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFKtQIeixhpaOG8c72kkrb9ZN9L-ccIc&libraries=places&callback=initAutocomplete" async defer></script>
 
+<<<<<<< HEAD
 
 
         <form id='new-map-form'>
@@ -53,18 +54,34 @@
           <div class="form-group">
             <label for="mapDescription">Description</label>
             <textarea class="form-control" rows="3" placeholder="Tell us about this map"></textarea>
+=======
+      <!-- <div class='col-lg-6 col-xs-12'> -->
+        <form id='new-map-form' action='/newmap' method='POST'>
+          <div class="form-group">
+            <label for="map-title">Title</label>
+            <input type='text' class="form-control" id="map-title" placeholder="title" name='title'>
           </div>
           <div class="form-group">
+            <label for="map-description">Description</label>
+            <input type='text' class="form-control" id="map-description" placeholder="description" name='description'>
+>>>>>>> 6687d0b31d3eef02ffb525f201c337a3ebc14515
+          </div>
+<!--      <div class="form-group">
             <label for="exampleInputFile">File input</label>
             <input type="file" id="exampleInputFile">
+<<<<<<< HEAD
             <p class="help-block">You can add a main image for this map</p>
           </div>
+=======
+            <p class="help-block">Example block-level help text here.</p>
+          </div> 
+>>>>>>> 6687d0b31d3eef02ffb525f201c337a3ebc14515
           <div class="checkbox">
             <label>
               <input type="checkbox"> Check me out
             </label>
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          </div> -->
+          <button type="submit" class="btn btn-default">Create</button>
         </form>
 
   </body>

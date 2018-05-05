@@ -27,9 +27,11 @@ module.exports = (knex) => {
         knex.select('*').from('poi_list')
         .where('map_id', '=', map_info.map.id)
         .then((results) => {
+          // Assigning knex results into map_info and passing it into render
           map_info['poi_list'] = results;
           console.log(map_info);
-          res.send(map_info);
+          res.render('view-map', map_info);
+
         });
       }
     })
@@ -88,6 +90,7 @@ module.exports = (knex) => {
     res.send('Got /api/users request');
   });
 
+// ----------------------------------------------------------------
   // CREATE NEW MAP PAGE:
   router.get('/newmap', (req, res) => {
     let templateVars = {username: req.session.username};
@@ -95,6 +98,14 @@ module.exports = (knex) => {
   });
 
 
+  router.post('/newmap', (req, res) => {
+    console.log(req.body);
+
+    let templateVars = {username: req.session.username};
+    res.render('view-map.ejs', templateVars);
+  });
+
+// ---------------------------------------------------------------------
 
   return router;
 };

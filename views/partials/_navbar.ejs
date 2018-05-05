@@ -27,10 +27,7 @@
           <li> <a href="#map-list">Maps</a> </li>
           <!-- THIS CAN REDIRECT TO LOGIN IF USER IS NOT SIGNED IN -->
           <li> 
-            <form method='GET' action='/newmap'>
-              <button type='submit'>Create a new map</button>
-              <!-- <a href="#">Create a Map</a> -->
-            </form>
+            <a href="/newmap">Create a Map</a>
           </li>
           <!-- Button trigger modal -->
           <% if (username) {%>

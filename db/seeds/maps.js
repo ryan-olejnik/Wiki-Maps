@@ -5,6 +5,7 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         // Inserts seed entries
         knex('maps').insert({
+        id: 1,  
         title: 'Vegan TO',
         description: 'Best vegan food in Toronto!!',
         image: 'image_link',
@@ -16,6 +17,7 @@ exports.seed = function(knex, Promise) {
         }),
 
         knex('maps').insert({
+        id: 2,
         title: 'Bars TO',
         description: 'Best bars in Toronto!!',
         image: 'image_link',

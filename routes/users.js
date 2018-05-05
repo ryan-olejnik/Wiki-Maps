@@ -69,11 +69,18 @@ module.exports = (knex) => {
   router.post('/newmap', (req, res) => {
     console.log(req.body);
 
+    knex.select('*').from('users')
+    .where('username', '=', req.session.username)
+    .then((results) => {
+      console.log(results.username + ' is the one who created the ');
+    });
 
     knex('maps').insert({
       title: req.body.title,
       description: req.body.description,
       image: String(req.body.image),
+      gps_lat: req.body['gps-lat'],
+      gps_lng: req.body['gps-lng'],
       created_by_user_id: 1  // <--- READ COOKIES TO FIND OUT WHO IS LOGGED IN!!!!!!!
     })
     .then(() => {

@@ -5,9 +5,10 @@
 
 function initMap() {
 
+  // Initil map center - Toronto
   var location = {lat:43.6532,lng:-79.3832};
 
-  // Initial map options
+  // Initial veiw map options
   var options = {
     zoom:12,
     center: location
@@ -22,28 +23,12 @@ function initMap() {
   //   addMarker({coords:event.latLng});
   // });
 
-
-  // Dummy Data
-  // var markers = [{
-  //   latitude: 43.654037,
-  //   longitude: -79.401611,
-  //   title: 'Cosmic Treats'},
-  //   {
-  //   latitude: 43.652187,
-  //   longitude: -79.402506,
-  //   title: 'Greens Vegetarian Resturante'
-  // }];
-
-
-  // var markers = JSON.parse(poi_list);
-
+  //
   var markers = poi_list;
-  console.log(markers);
-
-
 
 
   function addMarker(props){
+
     var marker = new google.maps.Marker({
       // position: new google.maps.LatLng(props.latitude, props.longitude),
       position: {lat: Number(props.latitude), lng: Number(props.longitude)},
@@ -70,9 +55,7 @@ function initMap() {
 
 
   for (var i = 0; i < markers.length; i++) {
-    // Add marker
-    console.log(i);
-    console.log(markers[i]);
+    // Add individual marker
     addMarker(markers[i]);
   }
 

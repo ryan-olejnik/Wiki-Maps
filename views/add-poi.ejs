@@ -53,11 +53,11 @@
       <form id='new-poi-form' action='/maps/<%=mapid%>/newpoi' method='POST'>
         <div class="form-group">
           <label for="poiTitle">Title</label>
-          <input type="text" class="form-control" placeholder="POI title" name='title'>
+          <input type="text" class="form-control" id="poi-title"  placeholder="POI title" name='title'>
         </div>
         <div class="form-group">
           <label for="mapDescription">Description</label>
-          <textarea class="form-control" rows="3" placeholder="Tell us about this POI" name='description'></textarea>
+          <textarea class="form-control" rows="3" placeholder="Tell us about this POI" name='description' maxlength="255"></textarea>
         </div>
 
 
@@ -77,18 +77,23 @@
         </div> -->
 
 
+        <div class="form-group">
+          <label for="poi-address">Address</label>
+          <input id="poi-address" type="text" class="form-control" placeholder="address" name='address'>
+        </div>
 
-        <div class="form-group">
+
+        <div class="form-group form-hide">
           <label for="gps-lat">GPS-lat</label>
-          <input id='gps-lat' type="text" class="form-control" placeholder="gps-lat" name='gps-lat'>
+          <input id='gps-lat' type="text" class="form-control" placeholder="gps-lat" name='gps-lat' required disabled>
         </div>
-        <div class="form-group">
+        <div class="form-group form-hide">
           <label for="gps-lng">GPS-lng</label>
-          <input id='gps-lng' type="text" class="form-control" placeholder="gps-lng" name='gps-lng'>
+          <input id='gps-lng' type="text" class="form-control" placeholder="gps-lng" name='gps-lng' required disabled>
         </div>
-        <div class="form-group">
+        <div class="form-group form-hide">
           <label for="placeid">place_id</label>
-          <input id='placeid' type="text" class="form-control" placeholder="placeid" name='placeid'>
+          <input id='placeid' type="text" class="form-control" placeholder="placeid" name='placeid' disabled>
         </div>
         <div class="form-group">
           <label for="image">Image</label>

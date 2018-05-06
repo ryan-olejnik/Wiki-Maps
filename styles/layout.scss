@@ -91,3 +91,19 @@ padding-top: 50px;
 
   // background-color: rgba(76, 120, 191, 0.5);
 }
+
+.thumbnail .map-image{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 200px;
+  background-size: cover;
+  object-fit: none;
+  object-position: 50% 50%;
+}
+
+.thumbnail h4 {
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+
+}

@@ -37,35 +37,34 @@
 
     <h1 id="user-who">Hello, <%=username%> </h1>
 
-
-
-
     <div class="container">
       <div class="row">
+        <h4 class="map-header">Map's created by <%=username%></h4>
 
           <% for (let map of user_created_maps) {%>
           <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <h4>Map's created by <%=username%></h4>
             <div class="thumbnail">
               <h4><%=`${map.title}` %></h4>
               <a href="/maps/<%=map.id%>">
-                <img src="<%=map.image%>">
+                <div class="map-image" style="background-image: url('<%=map.image%>')">
+                </div>
               </a>
             </div>
           </div>
           <% } %>
-      <!-- ROW CLOSED -->  
+      <!-- ROW CLOSED -->
       </div>
 
       <div class="row">
+        <h4 class="map-header">Map's favorited by <%=username%></h4>
 
           <% for (let map of your_fav_maps) { %>
           <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <h4>Map's favorited by <%=username%></h4>
             <div class="thumbnail">
               <h4><%=`${map.title}` %></h4>
               <a href="/maps/<%=map.id %>">
-                <img src="<%=map.image %>">
+                <div class="map-image" style="background-image: url('<%=map.image%>')">
+                </div>
               </a>
             </div>
           </div>

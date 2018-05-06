@@ -17,7 +17,28 @@ html, body {
   grid-area: list;
   height: 100%;
   grid-template-areas: "map list";
-  grid-template-columns: auto 400px;
+  grid-template-columns: auto 30%;
+}
+
+#poi-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+#map-title {
+  font-size: 25px;
+  font-weight: bolder;
+  margin-left: 5px;
+}
+
+#like-form {
+  align-self: center;
+}
+
+#like-button {
+  background-color: transparent;
+  border: none;
 }
 
 #add-poi-btn {

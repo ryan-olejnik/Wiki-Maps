@@ -38,33 +38,44 @@
     <% include partials/_navbar.ejs %>
     <h1>Create New Map</h1>
 
-<!-- 
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-        <div id="map"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFKtQIeixhpaOG8c72kkrb9ZN9L-ccIc&libraries=places&callback=initAutocomplete" async defer></script> -->
-
-
-        <form id='new-map-form' action='/newmap' method='POST'>
-          <div class="form-group">
-            <label for="mapTitle">Title</label>
-            <input type="text" class="form-control" placeholder="mapTitle" name='title'>
-          </div>
-          <div class="form-group">
-            <label for="mapDescription">Description</label>
-            <textarea class="form-control" rows="3" placeholder="Tell us about this map" name='description'></textarea>
-          </div>
-<!--           <div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile">
-            <p class="help-block">You can add a main image for this map</p>
-          </div> -->
-          <div class="form-group">
-            <label for="image">Image</label>
-            <input id='image' type="text" class="form-control" placeholder="image link" name='image'>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="panel panel-info">
+              <div class="panel-body">
+                Let's get you started!
+              </div>
+              <div class="panel-footer">
+                <p><i class="far fa-arrow-alt-circle-right"></i> Make sure to fill all the information in the form. After you fill all the information, we will get you started with adding point of interests.</p>
+                <p><i class="far fa-arrow-alt-circle-right"></i> Add a title for your map</p>
+                <p><i class="far fa-arrow-alt-circle-right"></i> Now tell us more about this map</p>
+                <p><i class="far fa-arrow-alt-circle-right"></i> Let's add a image link so that your map looks bettter</p>
+              </div>
+            </div>
           </div>
 
-          <button type="submit" class="btn btn-default">Create</button>
-        </form>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form id='new-map-form' action='/newmap' method='POST'>
+              <div class="form-group">
+                <label for="mapTitle">Title</label>
+                <input type="text" class="form-control" placeholder="mapTitle" name='title'>
+              </div>
+              <div class="form-group">
+                <label for="mapDescription">Description</label>
+                <textarea class="form-control" rows="3" placeholder="Tell us about this map" name='description'></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="image">Image</label>
+                <input id='image' type="text" class="form-control" placeholder="image link" name='image'>
+              </div>
+
+              <button type="submit" class="btn btn-default">Create</button>
+              
+            </form>
+          </div>
+        </div>
+      </div>
 
   </body>
 </html>

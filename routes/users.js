@@ -168,5 +168,18 @@ module.exports = (knex) => {
     res.render('add-poi.ejs', templateVars);
   });
 
+  router.get('/poi/:poi_id/edit', (req, res) => {
+    knex.select('*').from('poi_list')
+    .where('id', '=', req.params.poi_id)
+    .then((results)=>{
+      let templateVars = {username: req.session.username, poi_data: results};
+      // res.send(templateVars);
+      res.render('edit-poi.ejs', templateVars);
+    })
+    .catch((error)=>{
+      res.send('There was an error finding the poi in the database: ', error);
+    });
+  });
+
   return router;
 };

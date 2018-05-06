@@ -43,9 +43,9 @@ module.exports = (knex) => {
     req.session.username = null;
     req.session.user_id = null;
     // let templateVars = {username: req.session.username, maplist: []};
-    res.redirect('/')
+    res.redirect('/');
   });
-//---------------------------------------------------------------------------------- BELOW
+
   router.get('/profile', (req,res) => {
     let user_id = req.session.user_id;
     let username = req.session.username;
@@ -77,7 +77,7 @@ module.exports = (knex) => {
 
 
   });
-// --------------------------------------------------------------------------------- ABOVE
+
   router.post('/newmap', (req, res) => {
     // console.log(req.body);
     console.log(req.session.username + ' is creating a map and has id: ', req.session.user_id);
@@ -140,9 +140,10 @@ module.exports = (knex) => {
         knex.select('*').from('poi_list')
         .where('map_id', '=', map_info.map.id)
         .then((results) => {
-          // Assigning knex results into map_info and passing it into render
           map_info['poi_list'] = results;
-          // console.log(map_info);
+          map_info['username'] = req.session.username;
+
+          console.log(map_info);
           res.render('view-map', map_info);
         });
       }

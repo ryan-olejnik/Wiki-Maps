@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="/styles/login.css" type="text/css" />
     <!-- MAPLIST CSS -->
     <link rel="stylesheet" href="/styles/maplist.css" type="text/css" />
+    <!-- POI CSS -->
+    <link rel="stylesheet" href="/styles/add-poi.css" type="text/css" />
+
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
     <!-- Font -->
@@ -47,7 +50,7 @@
     </div>
 
     <div>
-      <form id='new-map-form' action='/maps/<%=mapid%>/newpoi' method='POST'>
+      <form id='new-poi-form' action='/maps/<%=mapid%>/newpoi' method='POST'>
         <div class="form-group">
           <label for="poiTitle">Title</label>
           <input type="text" class="form-control" placeholder="POI title" name='title'>
@@ -58,7 +61,7 @@
         </div>
 
 
-<!-- 
+<!--
         <div class="fileinput fileinput-new" data-provides="fileinput">
           <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
           <div>

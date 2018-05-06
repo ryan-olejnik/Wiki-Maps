@@ -43,22 +43,38 @@
 
       <div id="poi-list">
 
-        <h1><%= map.title %></h1>
+        <h2><%= map.title %></h1>
         <form method='GET' action='/maps/<%=map.id%>/addpoi'>
-          <input type='submit' value='Add POI'></submit>
+          <input class="btn btn-primary" id="add-poi-btn" type='submit' value='Add POI' />
         </form>
 
-        <% for (var i = 0; i < poi_list.length; i++) { %>
-          <div class="poi-container">
-            <div class="poi-title"> <%= poi_list[i].title %> </div>
-            <div class="poi-body">
-              <div class="poi-address">Address: <%= poi_list[i].address %> </div>
-              <div class="poi-desc">Description: <%= poi_list[i].description %> </div>
-              <div class="poi-user">Created by: <%= poi_list[i].created_by_username %> </div>
+        <div class="list-group">
+          <% for (var i = 0; i < poi_list.length; i++) { %>
+            <div class="list-group-item poi-container" data-toggle="list">
+              <div class="poi-title"> <%= poi_list[i].title %> </div>
+              <div class="poi-body">
 
+
+                <img class="img-responsive poi-img" src="<%= poi_list[i].image %>" alt="Card image cap">
+                <p class="poi-address"><b>Address:</b> <%= poi_list[i].address %> </p>
+                <p class="poi-desc"><b>Description:</b> <%= poi_list[i].description %> </p>
+                <p class="poi-user"><b>Created by:</b> <%= poi_list[i].created_by_username %> </p>
+                <div class="poi-buttons">
+                  <form action="">
+                    <button class="btn btn-success poi-button">Open</button>
+                  </form>
+                  <form action="">
+                    <button class="btn btn-primary poi-button">Edit</button>
+                  </form>
+                  <form action="">
+                    <button class="btn btn-warning poi-button">Delete</button>
+                  </form>
+
+                </div>
+              </div>
             </div>
-          </div>
-        <% } %>
+          <% } %>
+        </div>
 
 
 

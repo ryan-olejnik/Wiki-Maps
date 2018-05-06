@@ -44,6 +44,7 @@ exports.up = function(knex, Promise) {
         table.string('description');
         table.string('image');
         table.integer('created_by_user_id');
+        table.string('created_by_username');
         table.date('created_date').defaultTo(knex.fn.now());
         table.string('latitude');
         table.string('longitude');

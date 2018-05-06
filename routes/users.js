@@ -79,7 +79,6 @@ module.exports = (knex) => {
       })
       .then((result) => {
         // console.log('returning... ' + result)
-        knex.destroy();
         let templateVars = {username: req.session.username, mapID: result[0], mapTitle: req.body.title};
         console.log(templateVars);
         res.render('add-poi.ejs', templateVars);
@@ -88,6 +87,31 @@ module.exports = (knex) => {
         res.send('Unable to create map :(...');
         console.error('MAP WAS NOT CREATED BECASUE:\n', error);
       });
+  });
+
+  router.post('/maps/:mapid/newpoi', (req, res) => {
+    console.log(req.body);
+    knex('poi_list')
+    .insert({
+      map_id: req.params.mapid,
+      title: req.body.title,
+      description: req.body.description,
+      image: req.body.image,
+      created_by_user_id: 1,
+      created_by_username: req.session.username,
+      latitude: req.body['gps-lat'],
+      longitude: req.body['gps-lng'],
+      place_id: req.body.placeid,
+      address: 'address???'
+    })
+    .then(() => {
+      res.send('Got your new poi! Fank yew fank yew');
+    })
+    .catch((error) => {
+      console.log('Error inputting poi into database: ' + error);
+      res.send('Unable to create poi :(...')
+    });
+
   });
 
 

@@ -49,11 +49,33 @@ module.exports = (knex) => {
   router.get('/profile', (req,res) => {
     let user_id = req.session.user_id;
     let username = req.session.username;
-    // console.log('user id: ', user_id);
-    // console.log('username: ', username);
-    // knex.select('*').from('maps')
+
+    console.log('user id: ', user_id);
+    console.log('username: ', username);
     var templateVars = {username: req.session.username};
-    res.render('profile.ejs', templateVars);
+
+    // Find the maps the user has created:
+    knex.select('*').from('maps')
+    .where('created_by_user_id', '=', req.session.user_id)
+    .then((results) => {
+      templateVars.user_created_maps = results;
+
+      return knex('maps')
+      .join('favourites','favourites.map_id', '=', 'maps.id')
+      .where('favourites.user_id', '=', req.session.user_id)
+      .select('*')
+    })
+    .then((results) => {
+      templateVars['your_fav_maps'] = results;
+      res.render('profile.ejs', templateVars);
+      // res.send(templateVars);
+
+    })
+    .catch(()=> {
+      res.send('Couldnt search for users favs :(..');
+    });
+
+
   });
 // --------------------------------------------------------------------------------- ABOVE
   router.post('/newmap', (req, res) => {

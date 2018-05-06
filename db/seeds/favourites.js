@@ -13,7 +13,15 @@ exports.seed = function(knex, Promise) {
         knex('favourites').insert({
           user_id: 2,
           map_id: 1
+        }),
+
+        knex('favourites').insert({
+          user_id: 1,
+          map_id: 2
         })
+
+
+
       ]);
     });
 };

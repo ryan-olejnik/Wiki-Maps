@@ -79,7 +79,7 @@ module.exports = (knex) => {
       })
       .then((result) => {
         // console.log('returning... ' + result)
-        let templateVars = {username: req.session.username, mapID: result[0], mapTitle: req.body.title};
+        let templateVars = {username: req.session.username, mapid: result[0], mapTitle: req.body.title};
         console.log(templateVars);
         res.render('add-poi.ejs', templateVars);
       })
@@ -105,7 +105,7 @@ module.exports = (knex) => {
       address: 'address???'
     })
     .then(() => {
-      res.send('Got your new poi! Fank yew fank yew');
+      res.redirect(`/maps/${req.params.mapid}`);
     })
     .catch((error) => {
       console.log('Error inputting poi into database: ' + error);
@@ -122,6 +122,11 @@ module.exports = (knex) => {
 
   router.get('/newpoi', (req, res) => {
     let templateVars = {username: req.session.username};
+    res.render('add-poi.ejs', templateVars);
+  });
+
+  router.get('/maps/:mapid/addpoi', (req, res) => {
+    let templateVars = {username: req.session.username, mapid: req.params.mapid};
     res.render('add-poi.ejs', templateVars);
   });
 

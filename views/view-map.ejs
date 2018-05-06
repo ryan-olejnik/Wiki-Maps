@@ -29,20 +29,22 @@
   <body>
 
     <h1><%= map.title %></h1>
+    <form method='GET' action='/maps/<%=map.id%>/addpoi'>
+      <input type='submit' value='Add POI'></submit>
+    </form>
 
     <div id="map"></div>
 
     <div id="poi-list">
+      <% for (let poi in poi_list) {%>
 
       <div class="poi-container">
-        <div class="poi-title"> <%= poi_list[0].title %> </div>
-        <div class="poi-desc"> <%= poi_list[0].description %> </div>
+        <div class="poi-title"> <%= poi_list[poi].title %> </div>
+        <div class="poi-desc"> <%= poi_list[poi].description %> </div>
       </div>
 
-      <div class="poi-container">
-        <div class="poi-title"> <%= poi_list[1].title %> </div>
-        <div class="poi-desc"> <%= poi_list[1].description %> </div>
-      </div>
+      <% } %>
+
 
 
     </div>

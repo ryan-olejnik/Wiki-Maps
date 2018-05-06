@@ -8,7 +8,7 @@ const cookieSession = require('cookie-session');
 module.exports = (knex) => {
 
   router.get("/", (req, res) => {
-    // console.log(req.session.username + ' is logged in');
+    console.log(req.session.username + ' is logged in, with user_id: ', req.session.user_id);
     knex.select('*').from('maps')
     .then((results) => {
       // console.log('The maplist is: ', results);
@@ -21,39 +21,10 @@ module.exports = (knex) => {
     });
   });
 
-  router.get('/maps/:mapid', (req, res) => {
-    let map_info = {};
-    // lookup the map in the database, and send the map data, and all associated POIs
-    knex.select('*').from('maps')
-    .where('id', '=', Number(req.params.mapid))
-    .then((results) => {
-      // console.log(req.params.mapid);
-      if (results.length === 0){
-        throw new Error('No maps with id' + req.params.mapid);
-      } else{
-        map_info['map'] = results[0];
-        knex.select('*').from('poi_list')
-        .where('map_id', '=', map_info.map.id)
-        .then((results) => {
-          // Assigning knex results into map_info and passing it into render
-          map_info['poi_list'] = results;
-          // console.log(map_info);
-          res.render('view-map', map_info);
-        });
-      }
-    })
-    .catch((error) => {
-      res.send('There was an error: ' + error);
-    });
-  });
-
-
   router.post('/login', (req, res) => {
     knex.select('*').from('users')
     .where('email', '=', req.body.email)
     .then((result) => {
-      // console.log(result[0].username, ' is a member');
-      // console.log(result[0].password);
       if (req.body.password === result[0].password){
         req.session.username = result[0].username;
         req.session.user_id = result[0].id;
@@ -70,21 +41,53 @@ module.exports = (knex) => {
 
   router.post('/logout', (req, res) => {
     req.session.username = null;
+    req.session.user_id = null;
     // let templateVars = {username: req.session.username, maplist: []};
     res.redirect('/')
   });
+//---------------------------------------------------------------------------------- BELOW
+  router.get('/profile', (req,res) => {
+    let user_id = req.session.user_id;
+    let username = req.session.username;
+
+    console.log('user id: ', user_id);
+    console.log('username: ', username);
+    var templateVars = {username: req.session.username};
+
+    // Find the maps the user has created:
+    knex.select('*').from('maps')
+    .where('created_by_user_id', '=', req.session.user_id)
+    .then((results) => {
+      templateVars.user_created_maps = results;
+
+      return knex('maps')
+      .join('favourites','favourites.map_id', '=', 'maps.id')
+      .where('favourites.user_id', '=', req.session.user_id)
+      .select('*')
+    })
+    .then((results) => {
+      templateVars['your_fav_maps'] = results;
+      res.render('profile.ejs', templateVars);
+      // res.send(templateVars);
+
+    })
+    .catch(()=> {
+      res.send('Couldnt search for users favs :(..');
+    });
 
 
+  });
+// --------------------------------------------------------------------------------- ABOVE
   router.post('/newmap', (req, res) => {
     // console.log(req.body);
-    // console.log(req.session.username + ' is creating a map');
+    console.log(req.session.username + ' is creating a map and has id: ', req.session.user_id);
 
     knex('maps').returning('id')
     .insert({
         title: req.body.title,
         description: req.body.description,
         image: String(req.body.image),
-        created_by_user_id: 1,  //        HARD CODED... THIS NUMBER DOESNT DO ANYTHING...
+        created_by_user_id: req.session.user_id,
         created_by_username: req.session.username
       })
       .then((result) => {
@@ -123,6 +126,31 @@ module.exports = (knex) => {
     });
   });
 
+  router.get('/maps/:mapid', (req, res) => {
+    let map_info = {};
+    // lookup the map in the database, and send the map data, and all associated POIs
+    knex.select('*').from('maps')
+    .where('id', '=', Number(req.params.mapid))
+    .then((results) => {
+      // console.log(req.params.mapid);
+      if (results.length === 0){
+        throw new Error('No maps with id' + req.params.mapid);
+      } else{
+        map_info['map'] = results[0];
+        knex.select('*').from('poi_list')
+        .where('map_id', '=', map_info.map.id)
+        .then((results) => {
+          // Assigning knex results into map_info and passing it into render
+          map_info['poi_list'] = results;
+          // console.log(map_info);
+          res.render('view-map', map_info);
+        });
+      }
+    })
+    .catch((error) => {
+      res.send('There was an error: ' + error);
+    });
+  });
 
   router.get('/newmap', (req, res) => {
     let templateVars = {username: req.session.username};

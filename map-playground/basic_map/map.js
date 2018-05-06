@@ -4,8 +4,11 @@ function initMap() {
 
   // Initial map options
   var options = {
-    zoom:8,
-    center:{lat:43.6532,lng:-79.3832}
+    zoom:2.25,
+    // toronto
+    // center:{lat:43.6532,lng:-79.3832}
+    // center of earth map
+    center:{lat:31.22685967,lng:11.24664299}
   }
 
   // Create Map

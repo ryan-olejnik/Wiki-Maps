@@ -74,7 +74,8 @@ module.exports = (knex) => {
         title: req.body.title,
         description: req.body.description,
         image: String(req.body.image),
-        created_by_user_id: 1  
+        created_by_user_id: 1,  //        HARD CODED... THIS NUMBER DOESNT DO ANYTHING...
+        created_by_username: req.session.username
       })
       .then((result) => {
         // console.log('returning... ' + result)
@@ -89,7 +90,7 @@ module.exports = (knex) => {
       });
   });
 
-  // CREATE NEW MAP PAGE:
+
   router.get('/newmap', (req, res) => {
     let templateVars = {username: req.session.username};
     res.render('add_new_map.ejs', templateVars);

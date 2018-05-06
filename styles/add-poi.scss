@@ -1,13 +1,15 @@
 
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
-#map {
-  height: 40%;
-  width: 40%;
-  float: left;
-  margin-left: 20px;
-  margin-right: 20px;
-}
+ #map {
+   height: 40%;
+   width: 40%;
+   float: left;
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-top: 20px;
+   position: absolute;
+ }
 
 #new-poi-form {
   width: 40%;
@@ -23,7 +25,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 #description {
   font-family: Roboto;

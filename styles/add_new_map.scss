@@ -2,20 +2,20 @@
 // /* Always set the map height explicitly to define the size of the div
 //  * element that contains the map. */
 //
-#map {
-  height: 40%;
-  width: 40%;
-  float: left;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
-  position: absolute;
-}
-
-#new-map-form {
-  width: 100%;
-  margin: auto;
-}
+// #map {
+//   height: 40%;
+//   width: 40%;
+//   float: left;
+//   margin-left: 20px;
+//   margin-right: 20px;
+//   margin-top: 20px;
+//   position: absolute;
+// }
+//
+// #new-map-form {
+//   width: 100%;
+//   margin: auto;
+// }
 //
 h1 {
   text-align: center;
@@ -33,95 +33,95 @@ html, body {
   margin-left: 20px;
   margin-right: 20px;
 }
+//
+// #description {
+//   font-family: Roboto;
+//   font-size: 15px;
+//   font-weight: 300;
+// }
+//
+// #infowindow-content .title {
+//   font-weight: bold;
+// }
+//
+// #infowindow-content {
+//   display: none;
+// }
+//
+// #map #infowindow-content {
+//   display: inline;
+// }
 
-#description {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-}
+// .pac-card {
+//   margin: 10px 10px 0 0;
+//   border-radius: 2px 0 0 2px;
+//   box-sizing: border-box;
+//   -moz-box-sizing: border-box;
+//   outline: none;
+//   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+//   background-color: #fff;
+//   font-family: Roboto;
+// }
+//
+// #pac-container {
+//   padding-bottom: 12px;
+//   margin-right: 12px;
+// }
+//
+// .pac-controls {
+//   display: inline-block;
+//   padding: 5px 11px;
+// }
+//
+// .pac-controls label {
+//   font-family: Roboto;
+//   font-size: 13px;
+//   font-weight: 300;
+// }
 
-#infowindow-content .title {
-  font-weight: bold;
-}
-
-#infowindow-content {
-  display: none;
-}
-
-#map #infowindow-content {
-  display: inline;
-}
-
-.pac-card {
-  margin: 10px 10px 0 0;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
-  font-family: Roboto;
-}
-
-#pac-container {
-  padding-bottom: 12px;
-  margin-right: 12px;
-}
-
-.pac-controls {
-  display: inline-block;
-  padding: 5px 11px;
-}
-
-.pac-controls label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-}
-
-#pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  margin-right: 10px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 50%
-}
+// #pac-input {
+//   background-color: #fff;
+//   font-family: Roboto;
+//   font-size: 15px;
+//   font-weight: 300;
+//   margin-left: 12px;
+//   margin-right: 10px;
+//   padding: 0 11px 0 13px;
+//   text-overflow: ellipsis;
+//   width: 50%
+// }
 
 /* Customization */
-#pac-input {
-  margin-top: 10px;
-  line-height: 30px;
-}
-
-#pac-input:focus {
-  border-color: #4d90fe;
-}
-
-#title {
-  color: #fff;
-  background-color: #4d90fe;
-  font-size: 25px;
-  font-weight: 500;
-  padding: 6px 12px;
-}
-#target {
-  width: 345px;
-}
-
-.add-button {
-  margin-top: 10px;
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.flex-container > div {
-  width: 90%;
-  margin: 10px;
-}
+// #pac-input {
+//   margin-top: 10px;
+//   line-height: 30px;
+// }
+//
+// #pac-input:focus {
+//   border-color: #4d90fe;
+// }
+//
+// #title {
+//   color: #fff;
+//   background-color: #4d90fe;
+//   font-size: 25px;
+//   font-weight: 500;
+//   padding: 6px 12px;
+// }
+// #target {
+//   width: 345px;
+// }
+//
+// .add-button {
+//   margin-top: 10px;
+// }
+//
+// .flex-container {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+//
+// .flex-container > div {
+//   width: 90%;
+//   margin: 10px;
+// }

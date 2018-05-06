@@ -7,6 +7,8 @@
   float: left;
   margin-left: 20px;
   margin-right: 20px;
+  margin-top: 20px;
+  position: absolute;
 }
 
 #new-map-form {
@@ -79,7 +81,7 @@ html, body {
   margin-right: 10px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 400px
+  width: 50%
 }
 
 /* Customization */
@@ -105,4 +107,14 @@ html, body {
 
 .add-button {
   margin-top: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-container > div {
+  width: 90%;
+  margin: 10px;
 }

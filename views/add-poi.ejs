@@ -38,41 +38,49 @@
     <% include partials/_navbar.ejs %>
     <h1>Add POI</h1>
 
+  <div class="flex-container">
+    <div>
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+      <div id="map"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFKtQIeixhpaOG8c72kkrb9ZN9L-ccIc&libraries=places&callback=initAutocomplete" async defer></script>
+    </div>
 
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-        <div id="map"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFKtQIeixhpaOG8c72kkrb9ZN9L-ccIc&libraries=places&callback=initAutocomplete" async defer></script>
+    <div>
+      <form id='new-map-form' action='/newmap' method='POST'>
+        <div class="form-group">
+          <label for="poiTitle">Title</label>
+          <input type="text" class="form-control" placeholder="POI title" name='title'>
+        </div>
+        <div class="form-group">
+          <label for="mapDescription">Description</label>
+          <textarea class="form-control" rows="3" placeholder="Tell us about this POI" name='description'></textarea>
+        </div>
+    <!--           <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" id="exampleInputFile">
+          <p class="help-block">You can add a main image for this map</p>
+        </div> -->
+        <div class="form-group">
+          <label for="gps-lat">GPS-lat</label>
+          <input id='gps-lat' type="text" class="form-control" placeholder="gps-lat" name='gps-lat'>
+        </div>
+        <div class="form-group">
+          <label for="gps-lng">GPS-lng</label>
+          <input id='gps-lng' type="text" class="form-control" placeholder="gps-lng" name='gps-lng'>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input id='image' type="text" class="form-control" placeholder="image link" name='image'>
+        </div>
+
+        <button type="submit" class="btn btn-default">Add</button>
+      </form>
+    </div>
 
 
-        <form id='new-map-form' action='/newmap' method='POST'>
-          <div class="form-group">
-            <label for="mapTitle">Title</label>
-            <input type="text" class="form-control" placeholder="mapTitle" name='title'>
-          </div>
-          <div class="form-group">
-            <label for="mapDescription">Description</label>
-            <textarea class="form-control" rows="3" placeholder="Tell us about this map" name='description'></textarea>
-          </div>
-<!--           <div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile">
-            <p class="help-block">You can add a main image for this map</p>
-          </div> -->
-          <div class="form-group">
-            <label for="gps-lat">GPS-lat</label>
-            <input id='gps-lat' type="text" class="form-control" placeholder="gps-lat" name='gps-lat'>
-          </div>
-          <div class="form-group">
-            <label for="gps-lng">GPS-lng</label>
-            <input id='gps-lng' type="text" class="form-control" placeholder="gps-lng" name='gps-lng'>
-          </div>
-          <div class="form-group">
-            <label for="image">Image</label>
-            <input id='image' type="text" class="form-control" placeholder="image link" name='image'>
-          </div>
+  </div>
 
-          <button type="submit" class="btn btn-default">Create</button>
-        </form>
+
 
   </body>
 </html>

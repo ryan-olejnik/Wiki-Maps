@@ -8,9 +8,21 @@ const cookieSession = require('cookie-session');
 module.exports = (knex) => {
 
   router.get("/", (req, res) => {
-    console.log('cookie: ' + req.session.username);
-    let templateVars = {username: req.session.username};
-    res.render('index.ejs', templateVars);
+    console.log(req.session.username + ' is logged in');
+
+    knex.select('*').from('maps')
+    .then((results) => {
+      console.log('The maplist is: ', results);
+      let templateVars = {username: req.session.username, maplist: results};
+      res.render('index.ejs', templateVars);
+    })
+    .catch((error) => {
+      console.log('There was an error trying to read the map list: ', error);
+      res.send('There was an error trying to read the map list: ', error);
+    });
+
+
+
   });
 
   router.get('/maps/:mapid', (req, res) => {
@@ -111,7 +123,6 @@ module.exports = (knex) => {
       console.log('Error inputting poi into database: ' + error);
       res.send('Unable to create poi :(...')
     });
-
   });
 
 

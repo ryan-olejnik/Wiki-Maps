@@ -20,19 +20,47 @@ html, body {
   grid-template-columns: auto 400px;
 }
 
+#add-poi-btn {
+  width: 100%;
+  margin: 10px 0;
+}
+
 #poi-list {
   padding: 10px;
   /*resize: horizontal;*/
 }
 
 .poi-title {
+  font-size: 16px;
+  font-weight: bold;
   width: 100%;
-  padding: 5px;
+  margin: 5px 0;
+  /*padding: 5px;*/
 }
 
 .poi-body {
   display: none;
-  padding: 5px;
+  /*padding: 5px;*/
+}
+
+.poi-address {
+  margin: 5px 0;
+}
+
+.poi-address {
+  margin-top: 5px;
+}
+
+.poi-buttons {
+  display: inline-grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+}
+
+.poi-button {
+  justify-self: stretch;
+  width: 100%;
 }
 
 @media screen and (max-width: 800px) {

@@ -24,28 +24,36 @@
     <!-- JS import -->
     <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
     <script type="text/javascript" src="/scripts/view-map.js"></script>
+    <script type="text/javascript" src="/scripts/view-map-list.js"></script>
   </head>
 
   <body>
 
-    <h1><%= map.title %></h1>
-    <form method='GET' action='/maps/<%=map.id%>/addpoi'>
-      <input type='submit' value='Add POI'></submit>
-    </form>
 
-    <div id="map"></div>
+    <div id="map-list-container">
 
-    <div id="poi-list">
-      <% for (let poi in poi_list) {%>
+      <div id="map"></div>
 
-      <div class="poi-container">
-        <div class="poi-title"> <%= poi_list[poi].title %> </div>
-        <div class="poi-desc"> <%= poi_list[poi].description %> </div>
+      <div id="poi-list">
+
+        <h1><%= map.title %></h1>
+        <form method='GET' action='/maps/<%=map.id%>/addpoi'>
+          <input type='submit' value='Add POI'></submit>
+        </form>
+
+        <% for (var i = 0; i < poi_list.length; i++) { %>
+          <div class="poi-container">
+            <div class="poi-title"> <%= poi_list[i].title %> </div>
+            <div class="poi-body">
+              <div class="poi-desc"> <%= poi_list[i].description %> </div>
+              <div class="poi-desc"> <%= poi_list[i].address %> </div>
+            </div>
+          </div>
+        <% } %>
+
+
+
       </div>
-
-      <% } %>
-
-
 
     </div>
 

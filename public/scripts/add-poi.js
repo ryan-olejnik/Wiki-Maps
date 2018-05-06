@@ -120,7 +120,7 @@ function initAutocomplete() {
             console.log(place);
             console.log(place.name);
             console.log(place.formatted_address);
-            // console.log(place.geometry.location.lat(),place.geometry.location.lng());
+            console.log(place.geometry.location.lat(),place.geometry.location.lng());
             document.getElementById('poi-title').value = place.name;
             document.getElementById('poi-address').value = place.formatted_address;
             document.getElementById('gps-lat').value = place.geometry.location.lat();

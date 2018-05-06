@@ -51,6 +51,21 @@
 
     <div>
       <form id='new-poi-form' action='/maps/<%=mapid%>/newpoi' method='POST'>
+
+        <div class="form-group form-hide">
+          <label for="gps-lat">GPS-lat</label>
+          <input id='gps-lat' type="text" class="form-control" placeholder="gps-lat" name='gps-lat' required>
+        </div>
+        <div class="form-group form-hide">
+          <label for="gps-lng">GPS-lng</label>
+          <input id='gps-lng' type="text" class="form-control" placeholder="gps-lng" name='gps-lng' required>
+        </div>
+        <div class="form-group form-hide">
+          <label for="placeid">place_id</label>
+          <input id='placeid' type="text" class="form-control" placeholder="placeid" name='placeid'>
+        </div>
+
+
         <div class="form-group">
           <label for="poiTitle">Title</label>
           <input type="text" class="form-control" id="poi-title"  placeholder="POI title" name='title'>
@@ -82,19 +97,6 @@
           <input id="poi-address" type="text" class="form-control" placeholder="address" name='address'>
         </div>
 
-
-        <div class="form-group form-hide">
-          <label for="gps-lat">GPS-lat</label>
-          <input id='gps-lat' type="text" class="form-control" placeholder="gps-lat" name='gps-lat' required disabled>
-        </div>
-        <div class="form-group form-hide">
-          <label for="gps-lng">GPS-lng</label>
-          <input id='gps-lng' type="text" class="form-control" placeholder="gps-lng" name='gps-lng' required disabled>
-        </div>
-        <div class="form-group form-hide">
-          <label for="placeid">place_id</label>
-          <input id='placeid' type="text" class="form-control" placeholder="placeid" name='placeid' disabled>
-        </div>
         <div class="form-group">
           <label for="image">Image</label>
           <input id='image' type="text" class="form-control" placeholder="image link" name='image'>

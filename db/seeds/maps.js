@@ -8,6 +8,7 @@ exports.seed = function(knex, Promise) {
           description: 'Best vegan food in Toronto!!',
           image: 'image_link',
           created_by_user_id: 2,
+          created_by_username: 'justini46',
           created_date: '2016-03-11',
           is_private: false,
           })

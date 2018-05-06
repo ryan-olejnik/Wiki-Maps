@@ -63,7 +63,7 @@ module.exports = (knex) => {
       return knex('maps')
       .join('favourites','favourites.map_id', '=', 'maps.id')
       .where('favourites.user_id', '=', req.session.user_id)
-      .select('*')
+      .select('maps.id', 'maps.title', 'maps.description', 'maps.image', 'created_by_user_id', 'created_by_username')
     })
     .then((results) => {
       templateVars['your_fav_maps'] = results;
@@ -115,7 +115,7 @@ module.exports = (knex) => {
       latitude: req.body['gps-lat'],
       longitude: req.body['gps-lng'],
       place_id: req.body.placeid,
-      address: 'address???'
+      address: req.body.address
     })
     .then(() => {
       res.redirect(`/maps/${req.params.mapid}`);

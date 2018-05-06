@@ -8,11 +8,10 @@ const cookieSession = require('cookie-session');
 module.exports = (knex) => {
 
   router.get("/", (req, res) => {
-    console.log(req.session.username + ' is logged in');
-
+    // console.log(req.session.username + ' is logged in');
     knex.select('*').from('maps')
     .then((results) => {
-      console.log('The maplist is: ', results);
+      // console.log('The maplist is: ', results);
       let templateVars = {username: req.session.username, maplist: results};
       res.render('index.ejs', templateVars);
     })
@@ -20,9 +19,6 @@ module.exports = (knex) => {
       console.log('There was an error trying to read the map list: ', error);
       res.send('There was an error trying to read the map list: ', error);
     });
-
-
-
   });
 
   router.get('/maps/:mapid', (req, res) => {
@@ -41,7 +37,7 @@ module.exports = (knex) => {
         .then((results) => {
           // Assigning knex results into map_info and passing it into render
           map_info['poi_list'] = results;
-          console.log(map_info);
+          // console.log(map_info);
           res.render('view-map', map_info);
         });
       }
@@ -56,10 +52,12 @@ module.exports = (knex) => {
     knex.select('*').from('users')
     .where('email', '=', req.body.email)
     .then((result) => {
-      console.log(result[0].username, ' is a member');
-      console.log(result[0].password);
+      // console.log(result[0].username, ' is a member');
+      // console.log(result[0].password);
       if (req.body.password === result[0].password){
         req.session.username = result[0].username;
+        req.session.user_id = result[0].id;
+        // console.log('username: ', result[0].username, '\nuser_id: ', result[0].id);
         res.redirect('/');
       } else{
         throw new Error('User authenticaiton failed');
@@ -72,8 +70,8 @@ module.exports = (knex) => {
 
   router.post('/logout', (req, res) => {
     req.session.username = null;
-    let templateVars = {username: req.session.username};
-    res.render('index.ejs', templateVars);
+    // let templateVars = {username: req.session.username, maplist: []};
+    res.redirect('/')
   });
 
 

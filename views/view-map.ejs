@@ -24,26 +24,39 @@
     <!-- JS import -->
     <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
     <script type="text/javascript" src="/scripts/view-map.js"></script>
+    <script type="text/javascript" src="/scripts/view-map-list.js"></script>
   </head>
 
   <body>
 
-    <h1><%= map.title %></h1>
+    <div id="map-list-container">
 
-    <div id="map"></div>
+      <div id="map"></div>
 
-    <div id="poi-list">
+      <div id="poi-list">
 
-      <div class="poi-container">
-        <div class="poi-title"> <%= poi_list[0].title %> </div>
-        <div class="poi-desc"> <%= poi_list[0].description %> </div>
+        <h1><%= map.title %></h1>
+
+        <% for (var i = 0; i < poi_list.length; i++) { %>
+          <div class="poi-container">
+            <div class="poi-title"> <%= poi_list[i].title %> </div>
+            <div class="poi-body">
+              <div class="poi-desc"> <%= poi_list[i].description %> </div>
+              <div class="poi-desc"> <%= poi_list[i].address %> </div>
+            </div>
+          </div>
+        <% } %>
+
+        <!-- <div class="poi-container">
+          <div class="poi-title"> <%= poi_list[1].title %> </div>
+          <div class="poi-body">
+            <div class="poi-desc"> <%= poi_list[1].description %> </div>
+            <div class="poi-desc"> <%= poi_list[1].address %> </div>
+          </div>
+        </div> -->
+
+
       </div>
-
-      <div class="poi-container">
-        <div class="poi-title"> <%= poi_list[1].title %> </div>
-        <div class="poi-desc"> <%= poi_list[1].description %> </div>
-      </div>
-
 
     </div>
 

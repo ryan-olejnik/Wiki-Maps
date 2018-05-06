@@ -2,11 +2,48 @@
  * element that contains the map. */
 #map {
   height: 100%;
-  width: 80%;
+  width: 100%;
+  grid-area: map;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+#map-list-container {
+  display: grid;
+  grid-area: list;
+  height: 100%;
+  grid-template-areas: "map list";
+  grid-template-columns: auto 400px;
+}
+
+#poi-list {
+  padding: 10px;
+  /*resize: horizontal;*/
+}
+
+.poi-title {
+  width: 100%;
+  padding: 5px;
+}
+
+.poi-body {
+  display: none;
+  padding: 5px;
+}
+
+@media screen and (max-width: 800px) {
+
+  #map-list-container {
+      grid-template-areas: "map" "list";
+      grid-template-columns: 100%;
+  }
+
+  #map {
+    height: 100vh;
+  }
+
 }

@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
         knex('maps').insert({ 
           title: 'Vegan TO',
           description: 'Best vegan food in Toronto!!',
-          image: 'image_link',
+          image: 'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/11/noodles.jpg?itok=Oalsb6ro',
           created_by_user_id: 2,
           created_by_username: 'justini46',
           created_date: '2016-03-11',

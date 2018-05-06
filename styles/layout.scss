@@ -81,4 +81,13 @@ padding-top: 50px;
 .carousel-inner > .item > img{
   width: 100%;
   height: 100%;
+  // position: absolute;
+
+}
+
+.carousel-caption {
+  top: 0;
+  bottom: auto;
+
+  // background-color: rgba(76, 120, 191, 0.5);
 }

@@ -118,7 +118,11 @@ function initAutocomplete() {
 
           $('.add-button').click(function () {
             console.log(place);
+            console.log(place.name);
+            console.log(place.formatted_address);
             console.log(place.geometry.location.lat(),place.geometry.location.lng());
+            document.getElementById('poi-title').value = place.name;
+            document.getElementById('poi-address').value = place.formatted_address;
             document.getElementById('gps-lat').value = place.geometry.location.lat();
             document.getElementById('gps-lng').value = place.geometry.location.lng();
             document.getElementById('placeid').value = place.place_id;

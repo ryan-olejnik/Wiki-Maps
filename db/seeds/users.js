@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
           birthdate: '1992-04-28'
         }),
         knex('users').insert({
-          username: 'justine_true-doe',
+          username: 'justini46',
           password: 'password',
           email: 'jlum@gmail.com',
           phone_number: '416-666-6666',
@@ -30,7 +30,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Cem',
           last_name: 'Hekimoglu',
           birthdate: '1993-06-03'
-        }),
+        })
 
       ]);
     });

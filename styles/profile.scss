@@ -2,3 +2,19 @@
 #user-who {
   text-align: center;
 }
+
+.map-header {
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+
+
+.thumbnail .map-image{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 200px;
+  background-size: cover;
+  object-fit: none;
+  object-position: 50% 50%;
+}

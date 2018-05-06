@@ -35,33 +35,45 @@
 
     <% include partials/_navbar.ejs %>
 
-    <h1>Hello, <% username %> </h1>
+    <h1 id="user-who">Hello, <%=username%> </h1>
 
-    <h4>Map's created by <%=username%></h4>
 
-    <% for (let map of user_created_maps) {%>
-    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-      <div class="thumbnail">
-        <h4><%=`${map.title}` %></h4>
-        <a href="/maps/<%=map.id%>">
-          <img src="<%=map.image%>">
-        </a>
+    <div class="container">
+      <div class="row">
+
+          <% for (let map of user_created_maps) {%>
+          <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4>Map's created by <%=username%></h4>
+            <div class="thumbnail">
+              <h4><%=`${map.title}` %></h4>
+              <a href="/maps/<%=map.id%>">
+                <img src="<%=map.image%>">
+              </a>
+            </div>
+          </div>
+          <% } %>
+      <!-- ROW CLOSED -->  
       </div>
-    </div>
-    <% } %>
 
-    <h4>Map's favorited by <%=username%></h4>
+      <div class="row">
 
-    <% for (let map of your_fav_maps) { %>
-    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-      <div class="thumbnail">
-        <h4><%=`${map.title}` %></h4>
-        <a href="/maps/<%=map.id %>">
-          <img src="<%=map.image %>">
-        </a>
+          <% for (let map of your_fav_maps) { %>
+          <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4>Map's favorited by <%=username%></h4>
+            <div class="thumbnail">
+              <h4><%=`${map.title}` %></h4>
+              <a href="/maps/<%=map.id %>">
+                <img src="<%=map.image %>">
+              </a>
+            </div>
+          </div>
+          <% } %>
+
+      <!-- ROW CLOSED -->
       </div>
+      <!-- CONTAINER CLOSED -->
     </div>
-    <% } %>
+
 
   </body>
 </html>

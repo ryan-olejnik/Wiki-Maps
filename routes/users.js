@@ -173,6 +173,7 @@ module.exports = (knex) => {
     .where('id', '=', req.params.poi_id)
     .then((results)=>{
       let templateVars = {username: req.session.username, poi_data: results};
+      console.log(templateVars);
       // res.send(templateVars);
       res.render('edit-poi.ejs', templateVars);
     })
@@ -180,6 +181,18 @@ module.exports = (knex) => {
       res.send('There was an error finding the poi in the database: ', error);
     });
   });
+
+  router.post('/poi/:poi_id/edit', (req, res) => {
+    
+
+    
+    res.send('Fank yew');
+  });
+
+
+
+
+
 
   return router;
 };

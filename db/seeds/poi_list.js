@@ -159,26 +159,6 @@ exports.seed = function(knex, Promise) {
           address: 'Huairou, China'
         })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       ]);
     });
 };

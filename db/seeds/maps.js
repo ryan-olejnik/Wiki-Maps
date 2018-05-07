@@ -45,6 +45,17 @@ exports.seed = function(knex, Promise) {
           created_date: '2016-01-01',
           is_private: false
         });
+    })
+    .then(() => {
+      return knex('maps').insert({
+          title: 'Concert Venues Toronto',
+          description: 'Best concert venues in Toronto!!',
+          image: 'http://cdn3-www.mandatory.com/assets/uploads/2015/09/concert-people-e1441905780947.jpeg',
+          created_by_user_id: 4,
+          created_by_username: 'donald_trump',
+          created_date: '2016-01-01',
+          is_private: false
+        });
     });
 
 };

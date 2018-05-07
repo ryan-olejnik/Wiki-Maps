@@ -59,7 +59,7 @@
       <div id="poi-list">
 
         <header id="poi-header">
-          <div id="map-title"><%= map.title %></div>
+          <div id="map-title"> <%= map.title %></div>
           <form id="like-form">
             <% if (username) {%>
             <button id="like-button">
@@ -81,7 +81,7 @@
         <div class="list-group">
           <% for (var i = 0; i < poi_list.length; i++) { %>
             <div class="list-group-item poi-container" data-toggle="list">
-              <div class="poi-title"> <%= poi_list[i].title %> </div>
+              <div class="poi-title" data-marker="<%= i %>"> <%= poi_list[i].title %> </div>
               <div class="poi-body">
 
 
@@ -90,9 +90,9 @@
                 <p class="poi-desc"><b>Description:</b> <%= poi_list[i].description %> </p>
                 <p class="poi-user"><b>Created by:</b> <%= poi_list[i].created_by_username %> </p>
                 <div class="poi-buttons">
-                  <form action="">
-                    <button class="btn btn-success poi-button">Open</button>
-                  </form>
+                  <a href="https://www.google.com/maps/place/?q=place_id:<%= poi_list[i].place_id %>" target="_blank">
+                    <button class="btn btn-success poi-button" data-placeid="">Open</button>
+                  </a>
                   <form method='GET' action="/poi/<%=poi_list[i].id%>/edit">
                     <button class="btn btn-primary poi-button">Edit</button>
                   </form>

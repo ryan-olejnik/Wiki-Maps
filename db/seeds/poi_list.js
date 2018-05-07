@@ -376,7 +376,7 @@ exports.seed = function(knex, Promise) {
           map_id: 11,
           title: '6IX MMA',
           description: 'Clean gym, great technical coaching and fantastic atmosphere.',
-          image: 'https://www.tipntrips.com/wp-content/uploads/2017/12/The-Great-Wall-of-China.jpg',
+          image: 'https://static1.squarespace.com/static/533c9bdbe4b01b8f6b73f284/56453a99e4b0177ad4138b34/5a48831441920273ab75e33f/1485137133880/14305484_10155285210674899_5102958139507595537_o.jpg?format=500w',
           created_by_user_id: 3,
           created_by_username: 'cem-boii',
           created_date: '2018-01-01',

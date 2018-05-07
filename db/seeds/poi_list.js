@@ -157,6 +157,233 @@ exports.seed = function(knex, Promise) {
           longitude: '116.57037489999993',
           place_id: 'ChIJzyx_aNch8TUR3yIFlZslQNA',
           address: 'Huairou, China'
+        }),
+
+
+////////////////////////////////////////////////////////////////////////////////////
+
+// CINEMAS
+
+        knex('poi_list').insert({
+          map_id: 5,
+          title: 'TIFF Bell Lightbox',
+          description: 'International film festival',
+          image: 'http://www.signmedia.ca/wp-content/uploads/2014/02/GDQ4300.jpg',
+          created_by_user_id: 1,
+          created_by_username: 'ry-guy',
+          created_date: '2018-01-01',
+          latitude: '43.6465295',
+          longitude: '-79.39040820000002',
+          place_id: 'ChIJewSvlNA0K4gRlkERDVrMZ08',
+          address: 'TIFF Bell Lightbox, King Street West, Toronto, ON, Canada'
+        }),
+
+        knex('poi_list').insert({
+          map_id: 5,
+          title: 'The Royal',
+          description: 'Historic cinema for indies',
+          image: 'http://www.postcity.com/Eat-Shop-Do/Do/October-2014/Weekly-Toronto-Flick-Picks-Talkin-Buffer-Fest-Reel-Indie-at-The-Royal-and-more/flickpicks9.jpg',
+          created_by_user_id: 1,
+          created_by_username: 'ry-guy',
+          created_date: '2018-01-01',
+          latitude: '43.65520770000001',
+          longitude: '-79.4144814',
+          place_id: 'ChIJt6xW1_E0K4gRy1QoqXwJhHE',
+          address: 'The Royal, College Street, Toronto, ON, Canada'
+        }),
+
+        knex('poi_list').insert({
+          map_id: 5,
+          title: 'Scotiabank Theatre Toronto',
+          description: 'Large multiplex with a licensed lounge',
+          image: 'https://media-cdn.tripadvisor.com/media/photo-o/05/a1/74/92/scotiabank-theatre.jpg',
+          created_by_user_id: 1,
+          created_by_username: 'ry-guy',
+          created_date: '2018-01-01',
+          latitude: '43.6489106',
+          longitude: '-79.39123469999998',
+          place_id: 'ChIJ6WXdCtA0K4gR5wmJfTBGe48',
+          address: 'Scotiabank Theatre, Richmond Street West, Toronto, ON, Canada'
+        }),
+
+// HOSTEL'S IN COMBODIA
+
+        knex('poi_list').insert({
+          map_id: 6,
+          title: 'Siem Reap',
+          description: 'Fun lodging environment',
+          image: 'https://lonelyplanetimages.imgix.net/a/g/hi/t/ece4a0143363eb7f739b25032638804f-siem-reap.jpg?sharp=10&vib=20&w=1200',
+          created_by_user_id: 2,
+          created_by_username: 'justini46',
+          created_date: '2018-01-01',
+          latitude: '13.3550091',
+          longitude: '103.85517299999992',
+          place_id: 'ChIJeaiRjJoWEDER-rvlPvmqQKk',
+          address: 'Siem Reap, Cambodia'
+        }),
+
+        knex('poi_list').insert({
+          map_id: 6,
+          title: 'Sla Boutique Hostel',
+          description: 'Relaxed lodging serving free breakfast',
+          image: 'https://pix10.agoda.net/hotelImages/705/705393/705393_14122013590024088393.jpg?s=1024x768',
+          created_by_user_id: 2,
+          created_by_username: 'justini46',
+          created_date: '2018-01-01',
+          latitude: '11.5654507',
+          longitude: '104.92456059999995',
+          place_id: 'ChIJfSXnhkdRCTERAQJh372OrCI',
+          address: 'Sla Boutique Hostel, Oknha Ket St. (174), Phnom Penh, Cambodia'
+        }),
+
+// Free Activities to do in TO
+
+        knex('poi_list').insert({
+          map_id: 7,
+          title: 'Art Gallery of Toronto',
+          description: 'Visit the Art Gallery of Ontario and take a look at their permanent collection of artwork.',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Art_Gallery_of_Ontario_entrance.jpg',
+          created_by_user_id: 3,
+          created_by_username: 'cem-boii',
+          created_date: '2018-01-01',
+          latitude: '43.6536066',
+          longitude: '-79.39251230000002',
+          place_id: 'ChIJvRlT7cU0K4gRr0bg7VV3J9o',
+          address: 'Art Gallery of Ontario, Dundas Street West, Toronto, ON, Canada'
+        }),
+
+        knex('poi_list').insert({
+          map_id: 7,
+          title: 'Harbourfront Centre Natrel Rink',
+          description: 'Public skating rink',
+          image: 'http://www.harbourfrontcentre.com/images/venues/2017/Natrel-Rink_4.jpg',
+          created_by_user_id: 3,
+          created_by_username: 'cem-boii',
+          created_date: '2018-01-01',
+          latitude: '43.6381564',
+          longitude: '-79.38265999999999',
+          place_id: 'ChIJ-3BO8So1K4gRQLqEsRI0pz8',
+          address: 'Harbourfront Centre Natrel Rink, Queens Quay West, Toronto, ON, Canada'
+        }),
+
+        //Cocktails Toronto
+
+        knex('poi_list').insert({
+          map_id: 8,
+          title: 'The Cloak Bar',
+          description: 'Great cocktails cozy environment',
+          image: 'https://media-cdn.tripadvisor.com/media/photo-s/10/a3/fc/6e/it-really-is-one-of-the.jpg',
+          created_by_user_id: 4,
+          created_by_username: 'donald_trump',
+          created_date: '2018-01-01',
+          latitude: '43.6435857',
+          longitude: '-79.39854889999998',
+          place_id: 'ChIJ7xo6It80K4gRAuowskwRqW0',
+          address: 'The Cloak Bar, Wellington Street West, Toronto, ON, Canada'
+        }),
+
+        knex('poi_list').insert({
+          map_id: 8,
+          title: 'BarChef',
+          description: 'Everything looks fantastic and tastes amazing',
+          image: 'https://media-cdn.tripadvisor.com/media/photo-s/07/53/c2/fb/barchef.jpg',
+          created_by_user_id: 4,
+          created_by_username: 'donald_trump',
+          created_date: '2018-01-01',
+          latitude: '43.6481949',
+          longitude: '-79.40018199999997',
+          place_id: 'ChIJp77rrN00K4gRKdj2mzu8IBI',
+          address: 'BarChef, Queen St W, Toronto, ON, Canada'
+        }),
+
+        //Toronto Concert Venues
+
+        knex('poi_list').insert({
+          map_id: 9,
+          title: 'Budweiser Stage',
+          description: 'Fun midsize concert venue, good for the summer',
+          image: 'https://www.thestar.com/content/dam/thestar/news/queenspark/2017/01/10/how-big-brewers-call-the-shots-at-ontario-place-cohn/molson0011.jpg',
+          created_by_user_id: 1,
+          created_by_username: 'ry-guy',
+          created_date: '2018-01-01',
+          latitude: '43.6292459',
+          longitude: '-79.4152393',
+          place_id: 'ChIJa7dwhhA1K4gRUV9cPcYC64g',
+          address: 'Budweiser Stage, Lake Shore Boulevard West, Toronto, ON, Canada'
+        }),
+
+        knex('poi_list').insert({
+          map_id: 9,
+          title: 'RBC Echo Beach',
+          description: 'Jam along to your favorite bands on the beach',
+          image: 'http://www.thatericalper.com/wp-content/uploads/2017/05/Walk-Off-The-Earth-CBC-Music-Festival-Minis-Memories-DSC_1771.jpg',
+          created_by_user_id: 1,
+          created_by_username: 'ry-guy',
+          created_date: '2018-01-01',
+          latitude: '43.6294497',
+          longitude: '-79.41136840000001',
+          place_id: 'ChIJ_78-EQ41K4gRc6iqXpx4qoU',
+          address: 'RBC Echo Beach, Lake Shore Boulevard West, Toronto, ON, Canada'
+        }),
+
+        //GYM'S
+
+        knex('poi_list').insert({
+          map_id: 10,
+          title: 'YMCA',
+          description: 'Cheap and widely available',
+          image: 'http://rethinktires.ca/wp-content/uploads/gta1.png',
+          created_by_user_id: 2,
+          created_by_username: 'justini46',
+          created_date: '2018-01-01',
+          latitude: '43.6534225',
+          longitude: '-79.42593',
+          place_id: 'ChIJC6ihHFg0K4gRXdhNclqiv7k',
+          address: 'YMCA Gym, College Street, Toronto, ON, Canada'
+        }),
+
+        knex('poi_list').insert({
+          map_id: 10,
+          title: 'Hone Fitness',
+          description: '10$ a month, always clean!',
+          image: 'http://greenrockpm.ca/blog/wp-content/uploads/pasted-image-0-5.png',
+          created_by_user_id: 2,
+          created_by_username: 'justini46',
+          created_date: '2018-01-01',
+          latitude: '43.66755750000001',
+          longitude: '-79.38514830000003',
+          place_id: 'ChIJod2oELI0K4gRRTWB3baoqwg',
+          address: 'Hone Fitness, Isabella Street, Toronto, ON, Canada'
+        }),
+
+        //MMA/BJJ
+
+        knex('poi_list').insert({
+          map_id: 11,
+          title: 'Toronto BJJ',
+          description: 'Big and clean mats, friendly environment',
+          image: 'http://www.graciemag.com/wp-content/uploads/2014/01/Picture-15.png',
+          created_by_user_id: 3,
+          created_by_username: 'cem-boii',
+          created_date: '2018-01-01',
+          latitude: '43.6625624',
+          longitude: '-79.42176610000001',
+          place_id: 'ChIJ7977MYs0K4gRcBGzy4301ec',
+          address: 'Toronto BJJ, Bloor Street West, Toronto, ON, Canada'
+        }),
+
+        knex('poi_list').insert({
+          map_id: 11,
+          title: '6IX MMA',
+          description: 'Clean gym, great technical coaching and fantastic atmosphere.',
+          image: 'https://static1.squarespace.com/static/533c9bdbe4b01b8f6b73f284/56453a99e4b0177ad4138b34/5a48831441920273ab75e33f/1485137133880/14305484_10155285210674899_5102958139507595537_o.jpg?format=500w',
+          created_by_user_id: 3,
+          created_by_username: 'cem-boii',
+          created_date: '2018-01-01',
+          latitude: '43.6471792',
+          longitude: '-79.40490069999998',
+          place_id: 'ChIJVYynN5I0K4gRn8NoXMjvIPM',
+          address: '6IX MMA, Toronto, ON, Canada'
         })
 
       ]);

@@ -63,7 +63,7 @@ module.exports = (knex) => {
       return knex('maps')
       .join('favourites','favourites.map_id', '=', 'maps.id')
       .where('favourites.user_id', '=', req.session.user_id)
-      .select('*')
+      .select('maps.id', 'maps.title', 'maps.description', 'maps.image', 'created_by_user_id', 'created_by_username')
     })
     .then((results) => {
       templateVars['your_fav_maps'] = results;
@@ -115,7 +115,7 @@ module.exports = (knex) => {
       latitude: req.body['gps-lat'],
       longitude: req.body['gps-lng'],
       place_id: req.body.placeid,
-      address: 'address???'
+      address: req.body.address
     })
     .then(() => {
       res.redirect(`/maps/${req.params.mapid}`);
@@ -167,6 +167,46 @@ module.exports = (knex) => {
     let templateVars = {username: req.session.username, mapid: req.params.mapid};
     res.render('add-poi.ejs', templateVars);
   });
+
+  router.get('/poi/:poi_id/edit', (req, res) => {
+    knex.select('*').from('poi_list')
+    .where('id', '=', req.params.poi_id)
+    .then((results)=>{
+      let templateVars = {username: req.session.username, poi_data: results};
+      console.log(templateVars);
+      // res.send(templateVars);
+      res.render('edit-poi.ejs', templateVars);
+    })
+    .catch((error)=>{
+      res.send('There was an error finding the poi in the database: ', error);
+    });
+  });
+
+  router.post('/poi/:poi_id/edit', (req, res) => {
+    console.log(req.body);
+    knex('poi_list')
+    .where('id', '=', req.params.poi_id)
+    .update({
+      title: req.body.title,
+      description: req.body.description,
+      image: req.body.image
+    })
+    .then(() => {
+      res.redirect(`/maps/${req.body.map_id}`);
+    })
+    .catch((error) => {
+      console.log('Unable to edit poi: ', error);
+      res.send('Unable to edit poi: ', error);
+    });
+
+
+    
+  });
+
+
+
+
+
 
   return router;
 };

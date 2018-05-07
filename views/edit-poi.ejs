@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Add POI</title>
+    <title>Edit POI</title>
 
     <!-- BOOTSTRAP CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -17,8 +17,15 @@
     <!-- SCROLL JS -->
     <script type="text/javascript" src="/scripts/scroll.js"></script>
     <!-- APP JS -->
+
+    <script>
+      // creating variables which are accessable by imported js files
+      const poi_data = <%- JSON.stringify(poi_data) %>;
+    </script>
+
+
     <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
-    <script type="text/javascript" src="/scripts/add-poi.js"></script>
+    <script type="text/javascript" src="/scripts/edit-poi.js"></script>
     <!-- LAYOUT CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <!-- <link rel="stylesheet" href="/styles/add-poi.css" type="text/css" /> -->
@@ -30,7 +37,7 @@
     <!-- MAPLIST CSS -->
     <link rel="stylesheet" href="/styles/maplist.css" type="text/css" />
     <!-- POI CSS -->
-    <link rel="stylesheet" href="/styles/add-poi.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/edit-poi.css" type="text/css" />
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
@@ -40,29 +47,32 @@
   </head>
   <body>
     <% include partials/_navbar.ejs %>
-    <h1>Add POI</h1>
+    <h1>Edit POI</h1>
 
   <div class="flex-container">
-    <div>
-      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-      <div id="map"></div>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFKtQIeixhpaOG8c72kkrb9ZN9L-ccIc&libraries=places&callback=initAutocomplete" async defer></script>
-    </div>
 
-    <div>
-      <form id='new-poi-form' action='/maps/<%=mapid%>/newpoi' method='POST'>
 
-        <div class="form-group form-hide">
+    <div id="form-container">
+      <form id='edit-poi-form' action='/poi/<%=poi_data[0].id %>/edit' method='POST'>
+
+<!--         <div class="form-group form-hide">
           <label for="gps-lat">GPS-lat</label>
           <input id='gps-lat' type="text" class="form-control" placeholder="gps-lat" name='gps-lat' required>
         </div>
+
         <div class="form-group form-hide">
           <label for="gps-lng">GPS-lng</label>
           <input id='gps-lng' type="text" class="form-control" placeholder="gps-lng" name='gps-lng' required>
         </div>
+
         <div class="form-group form-hide">
           <label for="placeid">place_id</label>
           <input id='placeid' type="text" class="form-control" placeholder="placeid" name='placeid'>
+        </div> -->
+
+        <div class="form-group form-hide">
+          <label for="poiTitle">Map ID</label>
+          <input type="text" class="form-control" id="map-id"  placeholder="POI title" name='map_id'>
         </div>
 
 
@@ -72,25 +82,8 @@
         </div>
         <div class="form-group">
           <label for="mapDescription">Description</label>
-          <textarea class="form-control" rows="3" placeholder="Tell us about this POI" name='description' maxlength="255"></textarea>
+          <textarea class="form-control" id="poi-description" rows="3" placeholder="Tell us about this POI" name='description' maxlength="255"></textarea>
         </div>
-
-
-<!--
-        <div class="fileinput fileinput-new" data-provides="fileinput">
-          <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
-          <div>
-            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
-            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-          </div>
-        </div> -->
-
-        <!-- <div class="form-group">
-          <label for="exampleInputFile">File input</label>
-          <input type="file" id="exampleInputFile">
-          <p class="help-block">You can add a main image for this map</p>
-        </div> -->
-
 
         <div class="form-group">
           <label for="poi-address">Address</label>
@@ -102,15 +95,11 @@
           <input id='image' type="text" class="form-control" placeholder="image link" name='image'>
         </div>
 
-        <button type="submit" class="btn btn-default">Add</button>
+        <button type="submit" class="btn btn-default">Edit</button>
       </form>
     </div>
 
-
   </div>
-
-
-
 
   </body>
 </html>

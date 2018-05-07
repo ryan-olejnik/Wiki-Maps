@@ -1,0 +1,44 @@
+#edit-poi-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 50px;
+}
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+.add-button {
+  margin-top: 10px;
+}
+
+/*.form-container {
+  margin: 0 auto;
+  width: 60%;
+}*/
+
+.form-hide {
+
+  position: absolute;
+  left: 1000px;
+}
+

@@ -46,6 +46,7 @@ exports.seed = function(knex, Promise) {
           is_private: false
         });
     })
+<<<<<<< HEAD
 
 
     //kjdnaksdjnaskjdnakjsdnakjsndkajsndkajsndkajsndkjasndkjandskjn
@@ -87,11 +88,19 @@ exports.seed = function(knex, Promise) {
           title: 'Cocktails Toronto',
           description: 'Best cocktail bars in Toronto',
           image: 'https://images.unsplash.com/photo-1509669803555-fd5edd8d5a41?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=453ba52ad7b512705656a61f78bd11ad&auto=format&fit=crop&w=1500&q=80',
+=======
+    .then(() => {
+      return knex('maps').insert({
+          title: 'Concert Venues Toronto',
+          description: 'Best concert venues in Toronto!!',
+          image: 'http://cdn3-www.mandatory.com/assets/uploads/2015/09/concert-people-e1441905780947.jpeg',
+>>>>>>> c2ea4dd9ecc2b81df8d0f5cfb8f8e4decab08fa8
           created_by_user_id: 4,
           created_by_username: 'donald_trump',
           created_date: '2016-01-01',
           is_private: false
         });
+<<<<<<< HEAD
     })
     .then(() => {
       return knex('maps').insert({
@@ -126,5 +135,8 @@ exports.seed = function(knex, Promise) {
           is_private: false
         });
     })
+=======
+    });
+>>>>>>> c2ea4dd9ecc2b81df8d0f5cfb8f8e4decab08fa8
 
 };

@@ -159,6 +159,7 @@ exports.seed = function(knex, Promise) {
           address: 'Huairou, China'
         }),
 
+<<<<<<< HEAD
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -386,6 +387,8 @@ exports.seed = function(knex, Promise) {
           address: '6IX MMA, Toronto, ON, Canada'
         })
 
+=======
+>>>>>>> c2ea4dd9ecc2b81df8d0f5cfb8f8e4decab08fa8
       ]);
     });
 };

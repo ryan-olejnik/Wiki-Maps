@@ -61,17 +61,21 @@
         <header id="poi-header">
           <div id="map-title"><%= map.title %></div>
           <form id="like-form">
+            <% if (username) {%>
             <button id="like-button">
               <i class="far fa-heart fa-2x"></i>
               <!-- When liked changed to icon below -->
               <!-- <i class="fas fa-heart"></i>  -->
             </button>
+            <% } %>
           </form>
         </header>
 
-        <form method='GET' action='/maps/<%=map.id%>/addpoi'>
-          <input class="btn btn-primary" id="add-poi-btn" type='submit' value='Add POI' />
-        </form>
+        <% if (username) {%>
+          <form method='GET' action='/maps/<%=map.id%>/addpoi'>
+            <input class="btn btn-primary" id="add-poi-btn" type='submit' value='Add POI' />
+          </form>
+        <% } %>
 
         <div class="list-group">
           <% for (var i = 0; i < poi_list.length; i++) { %>

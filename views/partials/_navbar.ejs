@@ -26,10 +26,12 @@
         <ul class="nav navbar-nav navbar-right">
           <li> <a href="#map-list">Maps</a> </li>
           <!-- THIS CAN REDIRECT TO LOGIN IF USER IS NOT SIGNED IN -->
-          <li>
-            <a href="/newmap">Create a Map</a>
-          </li>
-
+          <% if (username) {%>
+            <li>
+              <a href="/newmap">Create a Map</a>
+            </li>
+          </button>
+          <% } %>
           <!-- Button trigger modal -->
           <% if (username) {%>
           <li> <a href="/profile">Hello, <%=username %></a> </li>

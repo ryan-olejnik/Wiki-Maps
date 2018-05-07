@@ -183,10 +183,24 @@ module.exports = (knex) => {
   });
 
   router.post('/poi/:poi_id/edit', (req, res) => {
-    
+    console.log(req.body);
+    knex('poi_list')
+    .where('id', '=', req.params.poi_id)
+    .update({
+      title: req.body.title,
+      description: req.body.description,
+      image: req.body.image
+    })
+    .then(() => {
+      res.redirect(`/maps/${req.body.map_id}`);
+    })
+    .catch((error) => {
+      console.log('Unable to edit poi: ', error);
+      res.send('Unable to edit poi: ', error);
+    });
+
 
     
-    res.send('Fank yew');
   });
 
 

@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
 
         knex('favourites').insert({
           user_id: 2,
-          map_id: 1
+          map_id: 5
         }),
 
         knex('favourites').insert({
@@ -31,8 +31,13 @@ exports.seed = function(knex, Promise) {
         }),
 
         knex('favourites').insert({
-          user_id: 3,
-          map_id: 1
+          user_id: 2,
+          map_id: 10
+        }),
+
+        knex('favourites').insert({
+          user_id: 2,
+          map_id: 8
         })
 
 

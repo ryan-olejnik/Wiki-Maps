@@ -1,4 +1,6 @@
 var lastInfoWindow;
+var markers = [];
+
 
 function initMap() {
 
@@ -24,7 +26,7 @@ function initMap() {
   // Assigns POI list to array of markers
   ////////////// Might want to consider just using poi_list
   // var markers = poi_list;
-  var markers = [];
+  // var markers = [];
 
 
   var bounds  = new google.maps.LatLngBounds();

@@ -11,6 +11,11 @@ $( document ).ready(function() {
       $(this).next().slideUp("slow");
     }
 
+
+    // Open infowindow of selected map item
+    var $marker = $(this).data('marker');
+    google.maps.event.trigger(markers[$marker], 'click');
+
   });
 
 
@@ -25,5 +30,21 @@ $( document ).ready(function() {
     }
 
   });
+
+
+
+  // Another way of getting markers infowindow to show on map
+  // $('.list-group .poi-title').each(function(i, e) {
+  //   $(e).click(function(i) {
+  //     return function(e) {
+  //       google.maps.event.trigger(markers[i], 'click');
+  //     }
+  //   }(i));
+  // });
+
+
+
+
+
 
 });

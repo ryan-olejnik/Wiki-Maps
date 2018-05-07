@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Edit POI</title>
+
+    <!-- BOOTSTRAP CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- JQUERY CDN -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <!-- BOOTSRAP JS CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <!-- SCROLL JS -->
+    <script type="text/javascript" src="/scripts/scroll.js"></script>
+    <!-- APP JS -->
+    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+    <script type="text/javascript" src="/scripts/edit-poi.js"></script>
+    <!-- LAYOUT CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="/styles/add-poi.css" type="text/css" /> -->
+    <link rel="stylesheet" href="/styles/add_new_map.css" type="text/css" />
+    <!-- NAVBAR CSS -->
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <!-- LOGIN CSS -->
+    <link rel="stylesheet" href="/styles/login.css" type="text/css" />
+    <!-- MAPLIST CSS -->
+    <link rel="stylesheet" href="/styles/maplist.css" type="text/css" />
+    <!-- POI CSS -->
+    <link rel="stylesheet" href="/styles/edit-poi.css" type="text/css" />
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
+
+  </head>
+  <body>
+    <% include partials/_navbar.ejs %>
+    <h1>Add POI</h1>
+
+  <div class="flex-container">
+
+
+    <div>
+      <form id='edit-poi-form' action='/maps/<%=mapid%>/newpoi' method='POST'>
+
+        <div class="form-group form-hide">
+          <label for="gps-lat">GPS-lat</label>
+          <input id='gps-lat' type="text" class="form-control" placeholder="gps-lat" name='gps-lat' required>
+        </div>
+
+        <div class="form-group form-hide">
+          <label for="gps-lng">GPS-lng</label>
+          <input id='gps-lng' type="text" class="form-control" placeholder="gps-lng" name='gps-lng' required>
+        </div>
+
+        <div class="form-group form-hide">
+          <label for="placeid">place_id</label>
+          <input id='placeid' type="text" class="form-control" placeholder="placeid" name='placeid'>
+        </div>
+
+        <div class="form-group">
+          <label for="poiTitle">Title</label>
+          <input type="text" class="form-control" id="poi-title"  placeholder="POI title" name='title'>
+        </div>
+        <div class="form-group">
+          <label for="mapDescription">Description</label>
+          <textarea class="form-control" rows="3" placeholder="Tell us about this POI" name='description' maxlength="255"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="poi-address">Address</label>
+          <input id="poi-address" type="text" class="form-control" placeholder="address" name='address'>
+        </div>
+
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input id='image' type="text" class="form-control" placeholder="image link" name='image'>
+        </div>
+
+        <button type="submit" class="btn btn-default">Add</button>
+      </form>
+    </div>
+
+
+  </div>
+
+  </body>
+</html>

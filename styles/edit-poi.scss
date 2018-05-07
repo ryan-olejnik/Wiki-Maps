@@ -1,5 +1,6 @@
 #edit-poi-form {
   width: 60%;
+  margin: 0 auto;
 }
 
 h1 {
@@ -30,12 +31,14 @@ html, body {
   margin-top: 10px;
 }
 
+/*.form-container {
+  margin: 0 auto;
+  width: 60%;
+}*/
 
+.form-hide {
 
-
-/*.form-hide {
-  visibility: hidden;
   position: absolute;
   left: 1000px;
-}*/
+}
 

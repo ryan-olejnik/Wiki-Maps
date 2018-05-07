@@ -198,9 +198,22 @@ module.exports = (knex) => {
       console.log('Unable to edit poi: ', error);
       res.send('Unable to edit poi: ', error);
     });
+  });
 
-
-    
+  router.post('/poi/:poi_id/delete', (req, res) => {
+    // console.log(req.body);
+    knex('poi_list')
+    .where('id', '=', req.params.poi_id)
+    .del()
+    .then(() => {
+      // console.log('req.body: ', req.body.map);
+      res.redirect('/');
+      // res.send('deleted ');
+    })
+    .catch((error) => {
+      console.log('Unable to delete poi: ', error);
+      res.send('Unable to delete poi: ', error);
+    });
   });
 
 

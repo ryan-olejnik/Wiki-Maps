@@ -91,7 +91,7 @@
                   <form method='GET' action="/poi/<%=poi_list[i].id%>/edit">
                     <button class="btn btn-primary poi-button">Edit</button>
                   </form>
-                  <form action="">
+                  <form method="POST" action='/poi/<%=poi_list[i].id%>/delete'>
                     <button class="btn btn-danger poi-button">Delete</button>
                   </form>
 

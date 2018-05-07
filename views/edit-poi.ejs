@@ -17,6 +17,13 @@
     <!-- SCROLL JS -->
     <script type="text/javascript" src="/scripts/scroll.js"></script>
     <!-- APP JS -->
+
+    <script>
+      // creating variables which are accessable by imported js files
+      const poi_data = <%- JSON.stringify(poi_data) %>;
+    </script>
+
+
     <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
     <script type="text/javascript" src="/scripts/edit-poi.js"></script>
     <!-- LAYOUT CSS -->
@@ -40,13 +47,13 @@
   </head>
   <body>
     <% include partials/_navbar.ejs %>
-    <h1>Add POI</h1>
+    <h1>Edit POI</h1>
 
   <div class="flex-container">
 
 
-    <div>
-      <form id='edit-poi-form' action='/maps/<%=mapid%>/newpoi' method='POST'>
+    <div id="form-container">
+      <form id='edit-poi-form' action='/poi/<%= poi_data.id %>/edit' method='POST'>
 
         <div class="form-group form-hide">
           <label for="gps-lat">GPS-lat</label>
@@ -69,7 +76,7 @@
         </div>
         <div class="form-group">
           <label for="mapDescription">Description</label>
-          <textarea class="form-control" rows="3" placeholder="Tell us about this POI" name='description' maxlength="255"></textarea>
+          <textarea class="form-control" id="poi-description" rows="3" placeholder="Tell us about this POI" name='description' maxlength="255"></textarea>
         </div>
 
         <div class="form-group">
@@ -82,10 +89,9 @@
           <input id='image' type="text" class="form-control" placeholder="image link" name='image'>
         </div>
 
-        <button type="submit" class="btn btn-default">Add</button>
+        <button type="submit" class="btn btn-default">Edit</button>
       </form>
     </div>
-
 
   </div>
 

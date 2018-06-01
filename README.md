@@ -6,6 +6,9 @@ WikiMaps is a wiki-style custom map web app which allows users to create and edi
 ## Screenshots
 
 !['main page'](https://github.com/ryan-olejnik/Wiki-Maps/blob/master/screenshots/main-page.png)
+!['main page'](https://github.com/ryan-olejnik/Wiki-Maps/blob/master/screenshots/map-list.png)
+!['main page'](https://github.com/ryan-olejnik/Wiki-Maps/blob/master/screenshots/map-view.png)
+!['main page'](https://github.com/ryan-olejnik/Wiki-Maps/blob/master/screenshots/create-new-poi.png)
 
 ## Dependencies
 

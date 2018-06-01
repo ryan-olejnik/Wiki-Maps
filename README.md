@@ -5,8 +5,7 @@ WikiMaps is a wiki-style custom map web app which allows users to create and edi
 
 ## Screenshots
 
-Coming soon.
-
+!['main page'](https://github.com/ryan-olejnik/Wiki-Maps/blob/master/screenshots/main-page.png)
 
 ## Dependencies
 
